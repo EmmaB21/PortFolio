@@ -1,0 +1,147 @@
+@import '../../variables.scss';
+@import '../../mixins.scss';
+
+
+.navbar {
+    opacity: 0;
+    z-index: 1;
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    transition: 800ms ease-in-out;
+    padding: 40px;
+    @include typo ('roboto', 20px, );
+    @include flex (space-between, '', row);
+    color: $white-text-color;
+
+    @media (max-width: 1400px) {
+        @include typo ('roboto', 16px, );
+        height: 60px;
+    }
+
+    @media (max-width: 1030px) {
+        padding: 20px;
+        @include typo ('roboto', 12px, );
+        height: 60px;
+    }
+
+    & ul {
+        list-style: none;
+        padding: 0;
+
+        @media (max-width: 540px) {
+            display: none;
+        }
+    }
+
+    & li {
+        display: inline;
+        margin: 0 15px;
+    }
+
+    & .nav-links a {
+        text-decoration: none;
+        color: $white-text-color;
+        position: relative;
+
+        &:hover {
+            color: $white-text-color;
+
+            &::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: -5px;
+                width: 100%;
+                height: 2px;
+                background-color: $color8;
+            }
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background-color: $color8;
+            transition: width 0.3s ease-in-out;
+        }
+
+    }
+
+    & img {
+        height: 25px;
+        padding-left: 8px;
+
+        @media (max-width: 540px) {
+            display: none;
+        }
+    }
+
+    .menu-burger {
+        @media (min-width: 540px) {
+            display: none;
+        }
+
+        @media (max-width: 540px) {
+            cursor: pointer;
+
+            div {
+                width: 30px;
+                height: 2px;
+                margin: 5px 0;
+                background: $white-text-color;
+                border-radius: 1px;
+                transition: 0.3s;
+            }
+        }
+
+        &.open {
+
+            /* transformation des lignes du menu-burger */
+            .line1 {
+                transform: rotate(45deg) translate(12px, -10px);
+                width: 3px;
+                height: 30px;
+                margin: 0;
+            }
+
+            .line2 {
+                transform: rotate(-45deg) translate(31px, -10px);
+                width: 3px;
+                height: 30px;
+                margin: 0;
+            }
+
+            .line3 {
+                opacity: 0;
+            }
+
+        }
+    }
+
+    .nav-links.active {
+        /* Afficher les liens lorsque la classe "active" est présente */
+        @include flex ("","", column);
+        background-color: $main-color;
+        padding-top: 40px;
+        padding-bottom: 12px;
+        position: absolute;
+        right: 0;
+
+        @media (min-width: 540px) {
+            display: none;
+        }
+
+        & li {
+            padding: 8px;
+        }
+    }
+}
+
+.nav__show {
+    opacity: 1;
+    background-color: $main-color;
+}

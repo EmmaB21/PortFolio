@@ -1,0 +1,11 @@
+.footer {
+    height: 80px;
+    width: 100%;
+    background-color: $main-color;
+    p {
+        @include typo ('dancing script', 20px, 200);
+        text-align: center;
+        color: $white-text-color;
+        padding-top: 30px;
+    }
+}

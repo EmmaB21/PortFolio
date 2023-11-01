@@ -1,0 +1,51 @@
+@import '../../variables.scss';
+@import '../../mixins.scss';
+
+.ligne {
+    padding: 32px 16px 16px 64px;
+    @include typo('roboto', 18px, );
+    // display: inline-block;
+    // overflow: hidden;
+    // opacity: 1;
+    animation: all 1s 1s ease forwards;
+    @for $i from 1 through 3 {
+        &:nth-of-type(#{$i}) {
+            // opacity: 0;
+            animation-delay: 600ms*$i;
+        }
+    }
+}
+
+.ligne__title {
+    color: $main-color;
+}
+
+.ligne__text {
+    display: inline-block;
+    color: $color6;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0 auto;
+    animation: typing 2.5s steps(50, end);
+    & .innerText {
+        color: $color8
+    }
+}
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+    to {
+        width: 100%
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

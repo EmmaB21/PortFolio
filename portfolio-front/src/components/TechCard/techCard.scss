@@ -1,0 +1,32 @@
+@import '../../variables.scss';
+@import '../../mixins.scss';
+
+.techCard {
+    width: 90%;
+    background-color: $color9;
+    opacity: 0.9;
+    padding: 10px;
+    border-radius: 20px;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.6);
+
+    p {
+        font-size: 16px;
+        margin-top: 5px;
+        color: $main-color;
+        opacity: 0.9;
+    }
+
+    img {
+        width: 70px;
+        height: 70px;
+        opacity: 0.9;
+    }
+
+    &:hover {
+        transform: scale(1.1);
+        opacity: 1;
+        // transform: translatey(-3px);
+        // box-shadow: 10px 15px 10px rgba(0, 0, 0, 0.8);
+    }
+}

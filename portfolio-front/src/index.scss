@@ -1,0 +1,24 @@
+@import "./components/Navbar/navbar.scss";
+@import "./components/Header/header.scss";
+@import "./components/About/about.scss";
+@import "./components/LigneParcours/LigneParcours.scss";
+@import "./components/TechCard/techCard.scss";
+@import "./components/Projects/projects.scss";
+@import "./components/ProjectCard/ProjectCard.scss";
+@import "./components/Contact/contact.scss";
+@import "./components/Form/form.scss";
+@import "./components/Footer/footer.scss";
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#root {
+    height: 100%;
+    width: 100%;
+}
+
+

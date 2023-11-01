@@ -1,0 +1,209 @@
+@import '../../variables.scss';
+@import '../../mixins.scss';
+
+
+.about {
+    width: 100%;
+    min-height: 100vh;
+    background-color: $main-color;
+    padding-top: 120px;
+    @media (max-width: 1030px) {
+        padding-top: 90px;
+    }
+
+    &__title {
+        padding: 36px;
+        padding-bottom: 56px;
+        color: $white-text-color;
+        @include typo ('dancing script', 3em, 400);
+        text-align: center;
+    }
+
+    &__columns {
+        width: 100%;
+        @include flex (space-around, center, row);
+        padding: 40px;
+       
+    }
+
+    & span {
+        color: $color8
+    }
+
+    .pres {
+        width: 30%;
+        padding: 80px;
+        padding-top: 0px;
+        text-align: center;
+        // border: 1px $color6 solid;
+        // border-radius: 10px;
+        @media (max-width: 1400px) {
+            width: 45%;
+            padding-bottom: 160px;
+        }
+
+        &__title {
+            @include typo ('roboto', 2em, 200);
+            color: $white-text-color;
+            padding: 20px;
+            padding-bottom: 120px;
+            @media (max-width: 1400px) {
+                padding-top: 0;
+                padding-bottom: 36px;
+            }
+            @media (max-width: 1030px) {
+                padding-bottom: 100px;
+            }
+            @media (max-width: 890px) {
+                font-size: 1.5em;
+                padding: 20px;
+                padding-top: 0px;
+            }
+        }
+
+        &__text {
+            @include typo ('roboto', 1.2em, 300);
+            color: $color2;
+            // padding: 12px;
+            padding-bottom: 50px;
+            text-align: left;
+            @media (max-width: 1030px) {
+                padding-bottom: 90px;
+            }
+        }
+    }
+
+    .skills {
+        width: 30%;
+        padding: 20px;
+        padding-top: 0px;
+        text-align: center;
+        @media (max-width: 1400px) {
+            width: 45%;
+            padding: 0px;
+        }
+
+        &__title {
+            @include typo ('roboto', 2em, 200);
+            color: $white-text-color;
+            padding: 0 20px 30px 20px;
+            @media (max-width: 890px) {
+                font-size: 1.5em;
+                padding: 20px;
+                padding-top: 0;
+            }
+        }
+
+        &__text {
+            @include typo ('roboto', 1.1em, 300);
+            color: $white-text-color
+        }
+
+        &__ctn {
+            padding: 15px;
+            padding-top: 25px;
+            height: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            align-items: center;
+            gap: 20px;
+            padding-bottom: 20px;
+            @media (max-width: 1030px) {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    }
+
+    .portrait {
+        width: 30%;
+        padding: 20px;
+        padding-top: 0px;
+        text-align: center;
+        @media (max-width: 1400px) {
+            display: none;
+        }
+        img {
+            width: 85%;
+            height: 580px;
+            border-radius: 10px;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+    }
+
+}
+
+// .about {
+//     height: 100vh;
+//     color: $main-color;
+//     // border-bottom: 0.5px solid $color7;
+//     background-color: $white-text-color;
+
+//     // &::before {
+//     //     content: "";
+//     //     position: absolute;
+//     //     height: 100vh;
+//     //     width: 100%;
+//     //     background-color: $white-text-color;
+//     //     background-image: url("../../img/pages/livreOuvert.webp");
+//     //     background-position: bottom;
+//     //     object-fit: cover;
+//     //     opacity: 0.2;
+//     // }
+
+//     .up-content {
+//         position: relative;
+//         padding-top: 220px;
+//         @include flex("", center, row);
+
+//         .left-content {
+//             width: 50%;
+
+//             .about__title {
+//                 @include typo('dancing script', 3em, 400);
+//                 text-align: center;
+//                 padding-bottom: 40px;
+//                 padding-right: 20px;
+//             }
+
+//             .lignes__ctn {
+//                 padding: 42px 0px;
+//             }
+//         }
+
+//         .right-content {
+//             color: $main-color;
+//             width: 45%;
+//             text-align: center;
+//             padding: 40px;
+//             border-bottom: 2px solid $color6;
+//             border-right: 2px solid $color6;
+//             border-radius: 2px;
+//             box-shadow: 5px 5px 5px rgba(69, 86, 78, 0.8);
+//             @include typo('roboto', 18px, );
+
+//             &__title {
+//                 @include typo('dancing script', 40px, );
+//             }
+
+//             &__text {
+//                 color: $color6;
+//                 padding: 40px;
+
+//                 .innerText {
+//                     color: $color8
+//                 }
+//             }
+
+//             .tech-container {
+//                 height: auto;
+//                 display: grid;
+//                 grid-template-columns: 1fr 1fr 1fr 1fr;
+//                 align-items: center;
+//                 gap: 20px;
+//                 padding-bottom: 20px;
+//             }
+
+//         }
+//     }
+// }
