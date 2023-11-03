@@ -31,6 +31,9 @@
         @media (max-width: 1030px) {
             grid-template-columns: 1fr;
         }
+        @media (max-width: 540px) {
+            padding: 30px;
+        }
     }
 }
 

@@ -2,49 +2,49 @@
     {
         "id": 0,
         "nom": "HTML",
-        "image": "../src/img/icones/html.webp",
+        "image": "/icones/html.webp",
         "alt": "HTML icon"
     },
     {
         "id": 1,
         "nom": "CSS",
-        "image": "../src/img/about/css.webp",
+        "image": "/icones/css2.webp",
         "alt": "CSS icon"
     },
     {
         "id": 2,
         "nom": "JavaScript",
-        "image": "../src/img/about/javascript.webp",
+        "image": "/icones/javascript.webp",
         "alt": "JavaScript icon"
     },
     {
         "id": 3,
         "nom": "SASS",
-        "image": "../src/img/about/sass.webp",
+        "image": "/icones/sass.webp",
         "alt": "SASS icon"
     },
     {
         "id": 4,
         "nom": "React",
-        "image": "../src/img/about/react.webp",
+        "image": "/icones/react.webp",
         "alt": "React icon"
     },
     {
         "id": 5,
         "nom": "Redux",
-        "image": "../src/img/about/redux.webp",
+        "image": "/icones/redux.webp",
         "alt": "Redux icon"
     },
     {
         "id": 6,
         "nom": "GitHub",
-        "image": "../src/img/about/github.webp",
+        "image": "/icones/github2.webp",
         "alt": "GitHub icon"
     },
     {
         "id": 7,
         "nom": "Swagger",
-        "image": "../src/img/about/swagger.webp",
+        "image": "/icones/swagger.webp",
         "alt": "Swagger icon"
     }
 ]

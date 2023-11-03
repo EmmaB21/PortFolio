@@ -2,55 +2,85 @@
     {
         "id": 0,
         "nom": "ArgentBank",
-        "image": "../../img/projects/bank-tree.webp",
+        "image": "/projects/bank-tree.webp",
         "alt": "ArgentBank",
-        "description" : "Argent Bank est une nouvelle banque en ligne qui souhaitait percer dans le secteur bancaire. J'ai travaillé sur la mise en place du tableau de bord et le système d'authentification des utilisateurs ainsi que sur la conception de nouvelles routes API pour la future gestion des comptes.",
+        "description": "Argent Bank est une nouvelle banque en ligne qui souhaitait percer dans le secteur bancaire. J'ai travaillé sur la mise en place du tableau de bord et le système d'authentification des utilisateurs ainsi que sur la conception de nouvelles routes API pour la future gestion des comptes.",
         "technos": "React, Redux",
-        "liens" : ""
+        "liens": [
+            {
+                "github": "https://github.com/EmmaB21/ArgentBank"
+            }
+        ]
     },
     {
         "id": 1,
         "nom": "Kasa",
-        "image": "../../img/projects/Kasa.webp",
+        "image": "/projects/Kasa.webp",
         "alt": "Kasa",
         "description": "Kasa est une application de location immobilière qui souhaitait opérer une refonte totale de son site. J'ai développé l’ensemble de l’application, en gérant l'intégration des différents composants et les routes, via react-router, en respectant les maquettes proposées.",
         "technos": "Sass, React",
-        "liens":""
+        "liens": [
+            {
+                "github": "https://github.com/EmmaB21/kasa"
+            }
+        ]
     },
     {
         "id": 2,
         "nom": "Nina Carducci",
-        "image": "../../img/projects/Nina.webp",
+        "image": "/projects/Nina.webp",
         "alt": "Nina Carducci",
         "description": "Nina Carducci est une photographe dont le site avait besoin d'être optimisé. J'ai travaillé à l'amélioration des performances du site, ainsi qu'à la mise en place du référencement local et des métas données pour les réseaux sociaux. Un rapport d'optimisation a été établi.",
         "technos": "SEO, Ligthouse",
-        "liens":""
+        "liens": [
+            {
+                "github": "https://github.com/EmmaB21/ninacarducci"
+            },
+            {
+                "website": "https://emmab21.github.io/ninacarducci/"
+            }
+        ]
     },
     {
         "id": 3,
         "nom": "Ohmyfood",
-        "image": "../../img/projects/Ohmyfood2.webp",
+        "image": "/projects/Ohmyfood2.webp",
         "alt": "Ohmyfood",
         "description": "Ohmyfood est jeune startup qui voudrait s'imposer sur le marché de la restauration. J'ai développé un site responsive en mobile-first en respectant les maquettes et en ajoutant des animations CSS.",
         "technos": "CSS, Sass",
-        "liens":""
+        "liens": [
+            {
+                "github": "https://github.com/EmmaB21/P4_Ohmyfood"
+            },
+            {
+                "website": "https://emmab21.github.io/P4_Ohmyfood/"
+            }
+        ]
     },
     {
         "id": 4,
         "nom": "Others Things",
-        "image": "../../img/projects/Othersthings.webp",
+        "image": "/projects/Othersthings.webp",
         "alt": "Others Things",
         "description": "Others Things est une entreprise de création de logiciels Windev. J'ai développé un site de type portFolio, en page unique, pour présenter cette entreprise et son travail.",
         "technos": "Sass, Javascript",
-        "liens": ""
+        "liens": [
+            {
+                "website": "http://othersthings.com/"
+            }
+        ]
     },
     {
         "id": 5,
         "nom": "Sophie Bluel",
-        "image": "../src/img/about/sophie-bluel.webp",
+        "image": "/projects/sophie-bluel.webp",
         "alt": "Sophie Bluel",
         "description": "Sophie Bluel est une architecte d'intérieur. J'ai travaillé à la conception de son site portfolio en gérant la connexion de l'administrateur et l'ajout de nouveaux projets.",
         "technos": "CSS, Javascript",
-        "liens":""
+        "liens": [
+            {
+                "github": "https://github.com/EmmaB21/Portfolio-architecte-sophie-bluel-master"
+            }
+        ]
     }
 ]

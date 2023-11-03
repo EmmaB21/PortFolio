@@ -32,7 +32,7 @@ $transition-time: 2.5s;
                 transform: translateZ(60px);
             }
 
-            a,
+            .card-links,
             p {
                 transform: translateZ(-60px) rotatey(-180deg);
             }
@@ -78,29 +78,29 @@ $transition-time: 2.5s;
             background: rgba(0, 0, 0, .2);
         }
 
-        &.cover0 {
-            background-image: url("../../img/Projets/bank-tree.webp");
-        }
+        // &.cover0 {
+        //     background-image: url("../../img/projects/bank-tree.webp");
+        // }
 
-        &.cover1 {
-            background-image: url("../../img/Projets/Kasa.webp");
-        }
+        // &.cover1 {
+        //     background-image: url("../../img/projects/Kasa.webp");
+        // }
 
-        &.cover2 {
-            background-image: url("../../img/Projets/Nina.webp");
-        }
+        // &.cover2 {
+        //     background-image: url("../../img/projects/Nina.webp");
+        // }
 
-        &.cover3 {
-            background-image: url("../../img/Projets/Ohmyfood2.webp");
-        }
+        // &.cover3 {
+        //     background-image: url("../../img/projects/Ohmyfood2.webp");
+        // }
 
-        &.cover4 {
-            background-image: url("../../img/Projets/Othersthings.webp");
-        }
+        // &.cover4 {
+        //     background-image: url("../../img/projects/Othersthings.webp");
+        // }
 
-        &.cover5 {
-            background-image: url("../../img/Projets/sophie-bluel.webp");
-        }
+        // &.cover5 {
+        //     background-image: url("../../img/projects/sophie-bluel.webp");
+        // }
 
         .card-title {
             @include typo('dancing script', 3em, 600);
@@ -112,6 +112,16 @@ $transition-time: 2.5s;
             transition: ease all $transition-time;
             z-index: 3;
             transform: translateZ(20px);
+            @media (max-width: 890px) {
+                @include typo('dancing script', 2.4em, 400);
+                bottom: 45px;
+                left: 40px;
+            }
+            @media (max-width: 540px) {
+                @include typo('dancing script', 2em, 300);
+                left: 30px;
+                bottom: 35px;
+            }
         }
 
         .technos {
@@ -124,6 +134,11 @@ $transition-time: 2.5s;
             transition: ease all $transition-time;
             z-index: 4;
             transform: translateZ(0px);
+            @media (max-width: 890px) {
+                @include typo('roboto', 0.9em, 400);
+                top: 40px;
+                right: 40px;
+            }
         }
     }
 
@@ -137,24 +152,36 @@ $transition-time: 2.5s;
         transition: ease all $transition-time;
         transform: translateZ(-1px);
         @include flex (center, center,column);
-        gap: 20px;
+        gap: 30px;
+        @media (max-width: 540px) {
+            gap: 20px;  
+        }
 
-        a {
+        .card-links {
             transform-style: preserve-3d;
             transition: ease transform $transition-time;
             transform: translateZ(-1px) rotatey(-180deg);
             background: transparent;
+            a{
             border: 1px solid white;
             @include typo('roboto', 1em, 300);
             color: $white-text-color;
             padding: 14px 32px;
+            margin: 8px;
             outline: none;
             text-decoration: none;
             border-radius: 10px;
+            @media (max-width: 890px) {
+                @include typo('roboto', 0.8em, 300);
+            }
+            @media (max-width: 540px) {
+                padding: 8px 16px;  
+            }
             &:hover {
                 background-color: $white-text-color;
                 color: $main-color;
             }
+        }
         }
         
         p {
@@ -169,6 +196,13 @@ $transition-time: 2.5s;
             padding: 24px 42px;
             width: 80%;
             border-radius: 10px;
+            @media (max-width: 890px) {
+                @include typo('roboto', 0.9em, 300);
+            }
+            @media (max-width: 540px) {
+                @include typo('roboto', 0.8em, 300);
+                padding: 12px 20px;  
+            }
         }
     }
 }

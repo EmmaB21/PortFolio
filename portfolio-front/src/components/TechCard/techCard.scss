@@ -2,14 +2,18 @@
 @import '../../mixins.scss';
 
 .techCard {
-    width: 90%;
+    width: 160px;
     background-color: $color9;
     opacity: 0.9;
     padding: 10px;
     border-radius: 20px;
     transition: transform 0.3s ease-in-out;
     box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.6);
-
+    text-align: center;
+    margin: auto;
+    @media (max-width: 890px) {
+        width: 100px;
+    }
     p {
         font-size: 16px;
         margin-top: 5px;
@@ -18,9 +22,13 @@
     }
 
     img {
-        width: 70px;
-        height: 70px;
+        width: 80px;
+        height: 80px;
         opacity: 0.9;
+        @media (max-width: 890px) {
+            width: 50px;
+            height: 50px;
+        }
     }
 
     &:hover {

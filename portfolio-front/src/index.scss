@@ -1,7 +1,6 @@
 @import "./components/Navbar/navbar.scss";
 @import "./components/Header/header.scss";
 @import "./components/About/about.scss";
-@import "./components/LigneParcours/LigneParcours.scss";
 @import "./components/TechCard/techCard.scss";
 @import "./components/Projects/projects.scss";
 @import "./components/ProjectCard/ProjectCard.scss";
@@ -19,6 +18,7 @@
 #root {
     height: 100%;
     width: 100%;
+    min-width: 320px;
 }
 
 

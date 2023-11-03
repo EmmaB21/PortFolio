@@ -7,9 +7,9 @@
     display: flex;
     flex-wrap: wrap;
     margin: auto;
+
     @media only screen and (max-width: 400px) {
         width: 95%;
-        margin: 8% 5%;
     }
 
     .contact-links,
@@ -23,21 +23,12 @@
     }
 
     &-links {
-        // background-color: rgba(29, 31, 32, );
         background-color: $main-color;
-        // background:
-        //     radial-gradient(circle at 55% 92%, $color7 0 12%, transparent 12.2%),
-        //     radial-gradient(circle at 94% 72%, $color7 0 10%, transparent 10.2%),
-        //     radial-gradient(circle at 20% max(78%, 350px), $color6 0 7%, transparent 7.2%),
-        //     radial-gradient(circle at 0% 0%, $color6 0 40%, transparent 40.2%)
-        //     rgba(29, 31, 32, 0.5);
         border-radius: 10px 0 0 10px;
 
         &-title {
             @include typo ('dancing script', clamp(30px, 6vw, 60px), 200);
-            // font-family: 'roboto';
             color: $white-text-color;
-            // font-size: clamp(30px, 6vw, 60px);
             letter-spacing: 2px;
             text-align: center;
             transform: scale(.95, 1);
@@ -52,10 +43,7 @@
         }
 
         .links {
-            @include flex (center, "","");
-            // display: flex;
-            // flex-wrap: wrap;
-            // justify-content: center;
+            @include flex (center, "", "");
             padding-top: 50px;
 
             @media only screen and (max-width: 400px) {
@@ -65,6 +53,7 @@
             .link {
                 margin: 10px;
                 cursor: pointer;
+                padding: 0 8px;
 
                 img {
                     width: 40px;
@@ -73,7 +62,6 @@
                         hue-rotate(220deg) drop-shadow(2px 4px 4px $main-color);
                     transition: 0.2s;
                     user-select: none;
-                    // background-clip: padding-box;
                     background-color: $white-text-color;
                     border-radius: 30px;
                     opacity: 0.8;
@@ -102,7 +90,6 @@
     }
 
     &-form-wrapper {
-        // background-color: rgba(192, 181, 173, 0.6);
         background-color: $color2;
         border-radius: 0 10px 10px 0;
 
@@ -176,11 +163,4 @@
             }
         }
     }
-
-    // @media only screen and (max-width: 800px) {
-
-    //     .contact-links,
-    //     .contact-form-wrapper {
-    //         width: 100%;
-    //     }
 }

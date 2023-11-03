@@ -10,6 +10,11 @@
     @media (max-width: 1030px) {
         padding-top: 200px;
     }
+    @media (max-width: 800px) {
+        height: max-content;
+        padding-bottom: 30px;
+    }
+
     // display: flex;
     // justify-content: center;
     // align-items: center;
