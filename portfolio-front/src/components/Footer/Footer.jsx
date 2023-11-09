@@ -25,7 +25,7 @@ const Footer = () => {
             <p className="modal-link" onClick={openModal}>Modifier</p>
           </div>
         ) : (
-          <p className="modal-link" onClick={openModal}>Login</p>
+            <p className="modal-link" onClick={openModal}>Login</p>
         )}
         {modalVisible && <Modal closeModal={() => setModalVisible(false)} isAuthenticated={isAuthenticated} />}
       </div>

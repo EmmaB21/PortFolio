@@ -1,6 +1,8 @@
 import React from 'react';
 import FormLogin from '../FormLogin/FormLogin';
-import Projects from '../Projects/Projects';
+import FormSignUp from '../FormSignUp/FormSignUp';
+import ProjectCard from '../ProjectCard/ProjectCard';
+import data from '../../data/projects.json';
 
 const Modal = ({ closeModal, isAuthenticated }) => {
   return (
@@ -10,10 +12,17 @@ const Modal = ({ closeModal, isAuthenticated }) => {
         <div>
           {isAuthenticated ? (
             // Affichez la liste des projets à partir du composant Projects
-            <Projects />
+            <div className="projects-container">
+                {data.map(project => (
+                    <ProjectCard key={project.id} project={project} />
+                ))}
+            </div>
           ) : (
             // Affichez le formulaire de connexion si l'utilisateur est déconnecté
-            <FormLogin />
+            <div>
+              <FormSignUp />
+              <FormLogin />
+            </div>
           )}
         </div>
       </div>
