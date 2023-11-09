@@ -2,7 +2,10 @@ import React from 'react';
 import FormLogin from '../FormLogin/FormLogin';
 import FormSignUp from '../FormSignUp/FormSignUp';
 import ProjectCard from '../ProjectCard/ProjectCard';
-import data from '../../data/projects.json';
+import TechCard from '../TechCard/TechCard';
+import projectsdata from '../../data/projects.json';
+import skillsdata from '../../data/skills.json';
+
 
 const Modal = ({ closeModal, isAuthenticated }) => {
   return (
@@ -11,11 +14,19 @@ const Modal = ({ closeModal, isAuthenticated }) => {
         <span className="close" onClick={closeModal}>X</span>
         <div>
           {isAuthenticated ? (
-            // Affichez la liste des projets à partir du composant Projects
-            <div className="projects-container">
-                {data.map(project => (
-                    <ProjectCard key={project.id} project={project} />
+            <div>
+              {/* Affichez la liste des projets à partir du composant Projects */}
+              <div className="projects-container">
+                {projectsdata.map(project => (
+                  <ProjectCard key={project.id} project={project} />
                 ))}
+              </div>
+              {/* Affichez la liste des skills à partir du composant Projects */}
+              <div className="projects-container">
+                {skillsdata.map(project => (
+                  <TechCard key={project.id} project={project} />
+                ))}
+              </div>
             </div>
           ) : (
             // Affichez le formulaire de connexion si l'utilisateur est déconnecté
