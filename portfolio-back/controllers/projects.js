@@ -67,11 +67,30 @@ exports.deleteProject = async (req, res, next) => {
 
 // Route GET pour récupérer tous les projets
 exports.getAllProjects = async (req, res, next) => {
-        try {
-            const projects = await prisma.project.findMany();
+    try {
+        const projects = await prisma.project.findMany();
 
-            res.status(200).json(projects);
-        } catch (error) {
-            res.status(400).json({ error });
+        res.status(200).json(projects);
+    } catch (error) {
+        res.status(400).json({ error });
+    }
+};
+
+exports.getOneProject = async (req, res, next) => {
+    try {
+        const project = await prisma.project.findUnique({
+            where: {
+                id: parseInt(req.params.id),
+            },
+        });
+
+        if (project) {
+            res.status(200).json(project);
+        } else {
+            res.status(404).json({ error: 'Projet non trouvé' });
         }
-    };
+    } catch (error) {
+        res.status(500).json({ error });
+    }
+}
+

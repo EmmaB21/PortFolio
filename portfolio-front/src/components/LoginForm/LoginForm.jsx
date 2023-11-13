@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 const FormLogin = () => {
-  const [isSubmitted, setIsSubmitted] = useState(false);
+
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const submitForm = async (e) => {
     e.preventDefault();
@@ -22,9 +24,8 @@ const FormLogin = () => {
         // On Stocke le token dans le local storage
         localStorage.setItem('token', token);
 
-        // On réinitialise le formulaire après soumission si nécessaire
-        form.reset();
-        setIsSubmitted(true);
+        navigate('/admin-page-projects');
+        
       } else {
         // On gère les erreurs en fonction de la réponse du serveur
         const errorData = await response.json();
@@ -49,7 +50,7 @@ const FormLogin = () => {
         </div>
         {error && <div className="error-message">{error}</div>}
         <button type="submit" className="submit-btn">
-          {isSubmitted ? "Connecté !" : "Se connecter"}
+          "Se connecter"
         </button>
       </form>
     </div>

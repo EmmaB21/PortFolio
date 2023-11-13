@@ -69,3 +69,24 @@ exports.getAllSkills = async (req, res, next) => {
             res.status(400).json({ error });
         }
     };
+
+
+    exports.getOneSkill = async (req, res, next) => {
+        try {
+            const skill = await prisma.project.findUnique({
+                where: {
+                    id: parseInt(req.params.id),
+                },
+            });
+    
+            if (project) {
+                res.status(200).json(skill);
+            } else {
+                res.status(404).json({ error: 'Skill non trouvée' });
+            }
+        } catch (error) {
+            res.status(500).json({ error });
+        }
+    }
+    
+    

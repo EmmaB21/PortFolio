@@ -16,11 +16,6 @@ const FormSignUp = () => {
       });
 
       if (response.ok) {
-        const data = await response.json();
-        const token = data.token;
-
-        // On Stocke le token dans le local storage
-        localStorage.setItem('token', token);
 
         // On réinitialise le formulaire après soumission si nécessaire
         form.reset();

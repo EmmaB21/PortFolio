@@ -11,10 +11,14 @@ app.use('/images', express.static(path.join(__dirname, 'images')));
 // On importe les fichiers de route
 const projectRoutes = require('./routes/projects');
 const userRoutes = require('./routes/user');
+const skillRoutes = require('./routes/skills');
+
 
 // On utilise les fichiers de route comme middleware
 app.use('/api/projects', projectRoutes);
 app.use('/api/auth', userRoutes);
+app.use('/api/skills', skillRoutes);
+
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');

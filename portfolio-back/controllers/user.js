@@ -41,7 +41,7 @@ exports.login = async (req, res, next) => {
       }
   
       // On génère un token d'authentification
-      const token = jwt.sign({ userId: user.id }, 'votre_clé_secrète', { expiresIn: '24h' });
+      const token = jwt.sign({ userId: user.id }, 'JWT_KEY', { expiresIn: '24h' });
   
       res.status(200).json({
         userId: user.id,

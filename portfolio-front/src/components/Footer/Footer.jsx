@@ -1,6 +1,6 @@
 // 
 import React, { useState } from 'react';
-import Modal from '../Modal/Modal';
+import Modal from '../LoginModal/LoginModal';
 
 const Footer = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('token'));
@@ -11,7 +11,7 @@ const Footer = () => {
   };
 
   const logout = () => {
-    // Supprimez le token du local storage et déconnectez l'utilisateur
+    // On supprime le token du local storage et on déconnecte l'utilisateur
     localStorage.removeItem('token');
     setIsAuthenticated(false);
   };
@@ -22,7 +22,6 @@ const Footer = () => {
         {isAuthenticated ? (
           <div>
             <p className="modal-link" onClick={logout}>Logout</p>
-            <p className="modal-link" onClick={openModal}>Modifier</p>
           </div>
         ) : (
             <p className="modal-link" onClick={openModal}>Login</p>

@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 
-const FormAdmin = () => {
+const FormNewSkill = () => {
 
     const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -18,13 +18,13 @@ const FormAdmin = () => {
 
             if (response.ok) {
                 setIsSubmitted(true);
-                form.reset(); // Réinitialisez le formulaire après soumission si nécessaire
+                form.reset(); // On réinitialise le formulaire après soumission si nécessaire
             } else {
-                // Gérez les erreurs en fonction de la réponse du serveur
+                // On gère les erreurs en fonction de la réponse du serveur
             }
         } catch (error) {
-            console.error('Une erreur s\'est produite lors de l\'envoi du formulaire', error);
-            // Gérez les erreurs ici
+            console.error("Une erreur s'est produite lors de l'envoi du formulaire", error);
+            // On gère les erreurs ici
         }
     };
 
@@ -46,18 +46,6 @@ const FormAdmin = () => {
                     <input type="text" name="alt" id="alt" required />
                     <label htmlFor="alt">Alt:</label>
                 </div>
-                <div className="form-item">
-                    <textarea className="" name="description" id="description" required></textarea>
-                    <label htmlFor="description">Description:</label>
-                </div>
-                <div className="form-item">
-                    <input type="text" name="technos" id="technos" required />
-                    <label htmlFor="technos">Technos:</label>
-                </div>
-                <div className="form-item">
-                    <input type="text" name="liens" id="liens" required />
-                    <label htmlFor="liens">liens:</label>
-                </div>
                 <button type="submit" className="submit-btn">
                     {isSubmitted ? "Envoyé !" : "Envoyer"}
                 </button>
@@ -66,4 +54,4 @@ const FormAdmin = () => {
     )
 }
 
-export default FormAdmin;
+export default FormNewSkill;
