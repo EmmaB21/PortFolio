@@ -14,20 +14,25 @@ import Error from './pages/Error/Error';
 
 const App = () => {
   const token = localStorage.getItem('token');
+  const MainLayout = () => {
+    return (
+      <div>
+        <Navbar />
+        <Header />
+        <About />
+        <Projects />
+        <Contact />
+        <Footer />
+      </div>
+    );
+  };
   return (
-    <div>
-      <Navbar />
-      <Header />
-      <About />
-      <Projects />
-      <Contact />
-      <Footer />
-      <Routes>
-        <Route path="/admin-page-projects" element={token ? <AdminProjects /> : <Navigate to="/404" />} />
-        <Route path="/admin-page-skills" element={token ? <AdminSkills /> : <Navigate to="/404" />} />
-        <Route path="*" element={<Error />} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/" element={<MainLayout />} />
+      <Route path="/admin-page-projects" element={token ? <AdminProjects /> : <Navigate to="/404" />} />
+      <Route path="/admin-page-skills" element={token ? <AdminSkills /> : <Navigate to="/404" />} />
+      <Route path="*" element={<Error />} />
+    </Routes>
   );
 };
 

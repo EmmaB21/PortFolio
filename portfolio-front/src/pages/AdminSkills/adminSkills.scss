@@ -1,7 +1,7 @@
 @import '../../variables.scss';
 @import '../../mixins.scss';
 
-.skills {
+.admin-skills {
     padding-top: 120px;
     padding-bottom: 60px;
     width: 100%;
@@ -12,38 +12,61 @@
         padding-top: 90px;
     }
 
-    &__title {
-        @include typo('dancing script', 3em, 400);
-        text-align: center;
-    }
+    & .skills__part {
+        padding-bottom: 36px;
 
-    &-container {
-        width: 50%;
-        margin: auto;
-        padding: 30px 0;
-        padding-bottom: 60px;
-        height: auto;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        align-items: center;
-        gap: 40px;
-
-        @media (max-width: 1400px) {
-            width: 60%;
+        &__title {
+            @include typo('dancing script', 3em, 400);
+            text-align: center;
+            margin-bottom: 24px;
+            ;
         }
 
-        @media (max-width: 1030px) {
-            grid-template-columns: 1fr 1fr 1fr;
+        &__btn {
+            background-color: $color7;
+            filter: drop-shadow(2px 2px 3px #0003);
+            color: $white-text-color;
+            font-family: "roboto";
+            font-size: clamp(16px, 1.6vw, 18px);
+            display: block;
+            padding: 12px 20px;
+            margin: 8px auto;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            user-select: none;
+            transition: 0.2s;
         }
 
-        @media (max-width: 890px) {
-            gap: 20px;
-            // width: 50%;
+        &-container {
+            width: 50%;
+            margin: auto;
+            padding: 30px 0;
+            padding-bottom: 60px;
+            height: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            align-items: center;
+            gap: 40px;
+
+            @media (max-width: 1400px) {
+                width: 60%;
+            }
+
+            @media (max-width: 1030px) {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+
+            @media (max-width: 890px) {
+                gap: 20px;
+                // width: 50%;
+            }
+
+            @media (max-width: 540px) {
+                grid-template-columns: 1fr 1fr;
+                width: 70%;
+            }
         }
 
-        @media (max-width: 540px) {
-            grid-template-columns: 1fr 1fr;
-            width: 70%;
-        }
     }
 }

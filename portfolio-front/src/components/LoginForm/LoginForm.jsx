@@ -4,17 +4,26 @@ import { useNavigate } from 'react-router-dom';
 const FormLogin = () => {
 
   const [error, setError] = useState(null);
+  const [formData, setFormData] = useState({ email: "", password: "" });
   const navigate = useNavigate();
 
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
   const submitForm = async (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const formData = new FormData(form);
+    e.preventDefault()
+
+    console.log('FormData:', formData); // Ajoutez cette ligne
+
 
     try {
-      const response = await fetch('URL_DE_L_API/login', {
+      const response = await fetch('http://localhost:3001/api/auth/login', {
         method: 'POST',
-        body: formData,
+        headers: {
+          'Content-Type': 'application/json', // Assurez-vous d'ajouter cette ligne pour indiquer le type de contenu JSON
+        },
+        body: JSON.stringify(formData),
       });
 
       if (response.ok) {
@@ -25,7 +34,7 @@ const FormLogin = () => {
         localStorage.setItem('token', token);
 
         navigate('/admin-page-projects');
-        
+
       } else {
         // On gère les erreurs en fonction de la réponse du serveur
         const errorData = await response.json();
@@ -41,16 +50,16 @@ const FormLogin = () => {
     <div className="login-form-wrapper">
       <form id="form" className="login-form" onSubmit={submitForm}>
         <div className="form-item">
-          <input type="email" name="email" id="email" required />
+          <input type="email" name="email" id="email" value={formData.email} onChange={handleChange} required />
           <label htmlFor="email">Email:</label>
         </div>
         <div className="form-item">
-          <input type="password" name="password" id="password" required />
+          <input type="password" name="password" id="password" value={formData.password} onChange={handleChange} required />
           <label htmlFor="password">Password:</label>
         </div>
         {error && <div className="error-message">{error}</div>}
         <button type="submit" className="submit-btn">
-          "Se connecter"
+          Se connecter
         </button>
       </form>
     </div>

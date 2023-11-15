@@ -52,7 +52,7 @@ const EditSkillForm = ({ onSubmit, isEditing, skillData, onDelete }) => {
             <form id='form' className="admin-form" onSubmit={handleFormSubmit}>
             <div className="form-item">
                     <input type="file" name="image" id="image" required onChange={handleFileChange} />
-                    <label htmlFor="image">Image:</label>
+                    {/* <label htmlFor="image">Image:</label> */}
                 </div>
                 <div className="form-item">
                     <input type="text" name="nom" id="nom" required onChange={handleInputChange} />

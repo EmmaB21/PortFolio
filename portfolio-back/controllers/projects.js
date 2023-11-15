@@ -2,10 +2,12 @@
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
+
 // Route POST pour créer un nouveau projet
 exports.createProject = async (req, res, next) => {
     try {
         const { nom, alt, description, technos, liens } = req.body;
+        console.log('Received request body:', req.body);
         const image = req.file.path;
         const newProject = await prisma.project.create({
             data: {
@@ -14,9 +16,24 @@ exports.createProject = async (req, res, next) => {
                 alt,
                 description,
                 technos,
-                liens
+                liens: { create: JSON.parse(liens) },
             },
         });
+
+        // Si des liens sont fournis, associez-les au projet
+        // if (liens && liens.length > 0) {
+        //     const linkObjects = JSON.parse(liens);
+
+        //     // Créez les liens et associez-les au projet
+        //     await prisma.lien.createMany({
+        //         data: linkObjects.map((link) => {
+        //             return {
+        //                 ...link,
+        //                 projectId: newProject.id,
+        //             };
+        //         }),
+        //     });
+        // }
 
         res.status(201).json({ message: 'Projet enregistré avec succès!', project: newProject });
     } catch (error) {

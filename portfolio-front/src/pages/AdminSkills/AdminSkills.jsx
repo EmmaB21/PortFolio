@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import TechCard from '../../components/TechCard/TechCardCard'
+import TechCard from '../../components/TechCard/TechCard'
 import NewSkillForm from '../../components/NewSkillForm/NewSkillForm';
 import EditModal from '../../components/EditModal/EditModal';
 
@@ -11,6 +11,8 @@ function AdminSkills() {
     const [selectedSkill, setSelectedSkill] = useState(null);
     const [modalMode, setModalMode] = useState(null);
     const [skills, setSkills] = useState([]);
+    const navigate = useNavigate();
+
 
 
     const handleOpenModal = (skill, mode) => {
@@ -25,10 +27,13 @@ function AdminSkills() {
         setModalOpen(false);
     };
 
-    const handleChangePage = () => {
-        const navigate = useNavigate
+    const navigateToProjects = () => {
         navigate('/admin-page-projects');
-    }
+    };
+
+    const navigateToHome = () => {
+        navigate('/');
+    };
 
     const handleDelete = async () => {
         try {
@@ -70,7 +75,7 @@ function AdminSkills() {
 
     useEffect(() => {
         // Effectue une requête GET 
-        fetch('/api/skills')
+        fetch('http://localhost:3001/api/skills')
             .then(response => response.json())
             .then(data =>
                 setSkills(data))
@@ -78,20 +83,24 @@ function AdminSkills() {
     }, []);
 
     return (
-        <div className="skills" id="Skills">
-            <h2 className='skills__title'>Page Admin - Mes compétences</h2>
-            <btn onClick={handleChangePage}>Page Projets</btn>
-            <section className="skills-container">
-                {skills.map(skill => (
-                    <div key={skill.id} onClick={() => handleOpenModal(skill, 'edit')}>
-                        <TechCard skill={skill} />
-                    </div>
-                ))}
-            </section>
+        <div className="admin-skills">
+            <div className='skills__part'>
+                <h2 className='skills__part__title'>Page Admin - Mes compétences</h2>
+                <button className="skills__part__btn" onClick={navigateToProjects}>Page Projets</button>
+                <button className="skills__part__btn" onClick={navigateToHome}>Page Principale</button>
+                <section className="skills__part-container">
+                    {skills.map(skill => (
+                        <div key={skill.id} onClick={() => handleOpenModal(skill, 'edit')}>
+                            <TechCard skill={skill} />
+                        </div>
+                    ))}
+                </section>
+            </div>
             <NewSkillForm />
             {isModalOpen &&
                 <EditModal
-                skill={selectedSkill}
+                    data={selectedSkill}
+                    type="skill"
                     mode={modalMode}
                     onClose={handleCloseModal}
                     onDeleteSkill={handleDelete}

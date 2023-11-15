@@ -6,7 +6,7 @@ const Modal = ({ closeModal}) => {
   return (
     <div id="modal" className="modal">
       <div className="modal-content">
-        <span className="close" onClick={closeModal}>X</span>
+        <button className="close" onClick={closeModal}>X</button>
         <div>
               <SignUpForm />
               <LoginForm />

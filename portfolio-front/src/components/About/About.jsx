@@ -1,8 +1,21 @@
+import { useState, useEffect } from 'react';
 import img from '../../img/about/silhouette.png'
 import TechCard from "../TechCard/TechCard";
-import data from '../../data/skills.json';
+// import data from '../../data/skills.json';
 
 const About = () => {
+
+  const [skills, setSkills] = useState([]);
+
+    useEffect(() => {
+      // Effectue une requête GET 
+      fetch('http://localhost:3001/api/skills')
+        .then(response => response.json())
+        .then(data => 
+            setSkills(data))
+        .catch(error => console.error('Erreur lors du chargement des cartes', error));
+    }, []); 
+    console.log("Skill Data:", skills);
 
   return (
     <section className="about" id="About">
@@ -22,7 +35,7 @@ const About = () => {
         </div>
       </div>
       <div className="skills__ctn">
-        {data.map(skill => (
+        {skills.map(skill => (
           <TechCard
             key={skill.id}
             skill={skill}

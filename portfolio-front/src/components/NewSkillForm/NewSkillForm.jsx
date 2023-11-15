@@ -11,8 +11,12 @@ const FormNewSkill = () => {
         const formData = new FormData(form);
 
         try {
-            const response = await fetch('URL_DE_L_API', {
+            const token = localStorage.getItem("token");
+            const response = await fetch('http://localhost:3001/api/skills', {
                 method: 'POST',
+                headers: {
+                      Authorization: `Bearer ${token}`,
+                    },
                 body: formData,
             });
 
@@ -36,7 +40,7 @@ const FormNewSkill = () => {
             >
                 <div className="form-item">
                     <input type="file" name="image" id="image" required />
-                    <label htmlFor="image">Image:</label>
+                    {/* <label htmlFor="image">Image:</label> */}
                 </div>
                 <div className="form-item">
                     <input type="text" name="nom" id="nom" required />

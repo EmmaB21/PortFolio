@@ -8,6 +8,18 @@ function ProjectCard({ project }) {
                 <div className="card-back">
                     <p>{project.description}</p>
                     <div className="card-links">
+                        {project.liens && project.liens.map((lien, index) => (
+                            <a
+                                key={index}
+                                href={lien[Object.keys(lien)[0]]}
+                                target='_blank'
+                                rel="noopener noreferrer">
+                                {Object.keys(lien)[0]}
+                            </a>
+                        ))}
+                    </div>
+
+                    {/* <div className="card-links">
                         {project.liens.map((lien, index) => (
                             <a 
                             key={index} 
@@ -17,7 +29,7 @@ function ProjectCard({ project }) {
                                 {Object.keys(lien)[0]}
                             </a>
                         ))}
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </article>
