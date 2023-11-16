@@ -5,27 +5,28 @@ import NewSkillForm from '../../components/NewSkillForm/NewSkillForm';
 import EditModal from '../../components/EditModal/EditModal';
 
 
-function AdminSkills() {
+const AdminSkills = () => {
 
     const [isModalOpen, setModalOpen] = useState(false);
     const [selectedSkill, setSelectedSkill] = useState(null);
-    const [modalMode, setModalMode] = useState(null);
     const [skills, setSkills] = useState([]);
     const navigate = useNavigate();
 
+    const updateSkills = (newSkills) => {
+        setSkills(newSkills);
+    };
 
 
-    const handleOpenModal = (skill, mode) => {
+    const handleOpenModal = (skill) => {
         setSelectedSkill(skill);
-        setModalMode(mode);
         setModalOpen(true);
     };
 
     const handleCloseModal = () => {
         setSelectedSkill(null);
-        setModalMode(null);
         setModalOpen(false);
     };
+
 
     const navigateToProjects = () => {
         navigate('/admin-page-projects');
@@ -35,43 +36,6 @@ function AdminSkills() {
         navigate('/');
     };
 
-    const handleDelete = async () => {
-        try {
-            // Effectuez la requête DELETE pour supprimer la carte
-            const response = await fetch(`/api/skills/${selectedSkill.id}`, {
-                method: 'DELETE',
-            });
-
-            if (response.ok) {
-                // Gérez la suppression côté client (mise à jour de l'interface, fermeture de la modale, etc.)
-                setSkills((prevSkills) => prevSkills.filter((skill) => skill.id !== selectedSkill.id));
-                handleCloseModal();
-            } else {
-                // Gérer les erreurs en fonction de la réponse du serveur
-            }
-        } catch (error) {
-            console.error("Une erreur s'est produite lors de la suppression de la carte", error);
-            // Gérer les erreurs ici
-        }
-    };
-
-    const handleUpdateSkill = async (formData, skillId) => {
-        try {
-            const response = await fetch(`URL_DE_L_API/${skillId}`, {
-                method: "PUT",
-                body: formData,
-            });
-
-            if (response.ok) {
-                // Gérer la mise à jour côté client (mise à jour de l'interface, etc.)
-            } else {
-                // Gérer les erreurs en fonction de la réponse du serveur
-            }
-        } catch (error) {
-            console.error("Une erreur s'est produite lors de la mise à jour de la carte", error);
-            // Gérer les erreurs ici
-        }
-    };
 
     useEffect(() => {
         // Effectue une requête GET 
@@ -79,8 +43,10 @@ function AdminSkills() {
             .then(response => response.json())
             .then(data =>
                 setSkills(data))
-            .catch(error => console.error('Erreur lors du chargement des skills', error));
+            .catch(error => console.error('Erreur lors du chargement des projets', error));
     }, []);
+
+
 
     return (
         <div className="admin-skills">
@@ -96,16 +62,16 @@ function AdminSkills() {
                     ))}
                 </section>
             </div>
-            <NewSkillForm />
-            {isModalOpen &&
+            <NewSkillForm updateSkills={updateSkills}/>
+            {isModalOpen && (
                 <EditModal
                     data={selectedSkill}
                     type="skill"
-                    mode={modalMode}
                     onClose={handleCloseModal}
-                    onDeleteSkill={handleDelete}
-                    onUpdateSkill={handleUpdateSkill}
-                />}
+                    updateSkills={updateSkills}
+                />
+            )}
+
         </div>
     );
 }

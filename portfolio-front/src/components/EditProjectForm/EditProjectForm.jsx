@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const EditProjectForm = ({ projectData }) => {
     const [isSubmitted, setIsSubmitted] = useState(false);
-    const [projects, setProjects] = useState([]);
+    // const [projects, setProjects] = useState([]);
     const [localFormData, setLocalFormData] = useState({
         image: "",
         nom: "",
@@ -55,6 +55,7 @@ const EditProjectForm = ({ projectData }) => {
             });
 
             if (response.ok) {
+                setIsSubmitted(true)
                 // Gérer la mise à jour côté client (mise à jour de l'interface, etc.)
             } else {
                 // Gérer les erreurs en fonction de la réponse du serveur
@@ -78,7 +79,7 @@ const EditProjectForm = ({ projectData }) => {
 
             if (response.ok) {
                 // Gérer la suppression côté client (mise à jour de l'interface, fermeture de la modale, etc.)
-                setProjects((prevProjects) => prevProjects.filter((project) => project.id !== projectData.id));
+                // setProjects((prevProjects) => prevProjects.filter((project) => project.id !== projectData.id));
 
             } else {
                 // Gérer les erreurs en fonction de la réponse du serveur
@@ -90,11 +91,11 @@ const EditProjectForm = ({ projectData }) => {
     };
 
     return (
-        <div className="admin-form-wrapper">
-            <form id='form' className="admin-form" onSubmit={handleFormSubmit}>
+        <div className="edit-project-form-wrapper">
+            <form id='form' className="edit-project-form" onSubmit={handleFormSubmit}>
                 <div className="form-item">
                     <input type="file" name="image" id="image" required onChange={handleFileChange} />
-                    <label htmlFor="image">Image:</label>
+                    {/* <label htmlFor="image">Image:</label> */}
                 </div>
                 <div className="form-item">
                     <input type="text" name="nom" id="nom" required onChange={handleInputChange} />
@@ -117,12 +118,12 @@ const EditProjectForm = ({ projectData }) => {
                     <label htmlFor="liens">Liens (au format JSON) :</label>
                 </div>
                 <button type="submit" className="submit-btn">
-                    {isSubmitted ? "Envoyé !" : "Envoyer"}
+                    {isSubmitted ? "Envoyé !" : "Modifier"}
                 </button>
             </form>
 
             <button onClick={handleDelete} className="delete-btn">
-                Supprimer
+            Supprimer
             </button>
 
         </div>
@@ -130,5 +131,3 @@ const EditProjectForm = ({ projectData }) => {
 };
 
 export default EditProjectForm;
-
-

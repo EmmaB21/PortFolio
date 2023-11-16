@@ -16,24 +16,10 @@ exports.createProject = async (req, res, next) => {
                 alt,
                 description,
                 technos,
-                liens: { create: JSON.parse(liens) },
+                liens,
             },
         });
 
-        // Si des liens sont fournis, associez-les au projet
-        // if (liens && liens.length > 0) {
-        //     const linkObjects = JSON.parse(liens);
-
-        //     // Créez les liens et associez-les au projet
-        //     await prisma.lien.createMany({
-        //         data: linkObjects.map((link) => {
-        //             return {
-        //                 ...link,
-        //                 projectId: newProject.id,
-        //             };
-        //         }),
-        //     });
-        // }
 
         res.status(201).json({ message: 'Projet enregistré avec succès!', project: newProject });
     } catch (error) {

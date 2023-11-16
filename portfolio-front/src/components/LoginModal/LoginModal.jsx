@@ -1,5 +1,5 @@
 import LoginForm from '../LoginForm/LoginForm';
-import SignUpForm from '../SignUpForm/SignUpForm';
+// import SignUpForm from '../SignUpForm/SignUpForm';
 
 
 const Modal = ({ closeModal}) => {
@@ -8,7 +8,7 @@ const Modal = ({ closeModal}) => {
       <div className="modal-content">
         <button className="close" onClick={closeModal}>X</button>
         <div>
-              <SignUpForm />
+              {/* <SignUpForm /> */}
               <LoginForm />
         </div>
       </div>
