@@ -12,6 +12,9 @@ const AdminProjects = () => {
     const [projects, setProjects] = useState([]);
     const navigate = useNavigate();
 
+    const updateProjects = (newProjects) => {
+        setProjects(newProjects);
+    };
 
     const handleOpenModal = (project) => {
         setSelectedProject(project);
@@ -58,12 +61,13 @@ const AdminProjects = () => {
                     ))}
                 </section>
             </div>
-            <NewProjectForm />
+            <NewProjectForm updateProjects={updateProjects}/>
             {isModalOpen && (
                 <EditModal
                     data={selectedProject}
                     type="project"
                     onClose={handleCloseModal}
+                    updateProjects={updateProjects}
                 />
             )}
 

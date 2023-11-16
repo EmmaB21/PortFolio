@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 
-const EditProjectForm = ({ projectData }) => {
+const EditProjectForm = ({ projectData, updateProjects }) => {
     const [isSubmitted, setIsSubmitted] = useState(false);
-    // const [projects, setProjects] = useState([]);
     const [localFormData, setLocalFormData] = useState({
         image: "",
         nom: "",
@@ -56,7 +55,10 @@ const EditProjectForm = ({ projectData }) => {
 
             if (response.ok) {
                 setIsSubmitted(true)
-                // Gérer la mise à jour côté client (mise à jour de l'interface, etc.)
+                fetch('http://localhost:3001/api/projects')
+                    .then(response => response.json())
+                    .then(data => updateProjects(data))
+                    .catch(error => console.error('Erreur lors du chargement des projets', error));
             } else {
                 // Gérer les erreurs en fonction de la réponse du serveur
             }
@@ -78,8 +80,12 @@ const EditProjectForm = ({ projectData }) => {
             });
 
             if (response.ok) {
-                // Gérer la suppression côté client (mise à jour de l'interface, fermeture de la modale, etc.)
-                // setProjects((prevProjects) => prevProjects.filter((project) => project.id !== projectData.id));
+                setIsSubmitted(true)
+                // Appeler la fonction pour mettre à jour les projets dans le composant parent
+                fetch('http://localhost:3001/api/projects')
+                    .then(response => response.json())
+                    .then(data => updateProjects(data))
+                    .catch(error => console.error('Erreur lors du chargement des cartes', error));
 
             } else {
                 // Gérer les erreurs en fonction de la réponse du serveur
@@ -123,7 +129,7 @@ const EditProjectForm = ({ projectData }) => {
             </form>
 
             <button onClick={handleDelete} className="delete-btn">
-            Supprimer
+                Supprimer
             </button>
 
         </div>

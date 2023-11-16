@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const NewProjectForm = () => {
+const NewProjectForm = ({updateProjects}) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
 
@@ -24,6 +24,11 @@ const NewProjectForm = () => {
       if (response.ok) {
         setIsSubmitted(true);
         form.reset(); // On réinitialise le formulaire après soumission si nécessaire
+        // Appeler la fonction pour mettre à jour les projets dans le composant parent
+        fetch('http://localhost:3001/api/projects')
+          .then(response => response.json())
+          .then(data => updateProjects(data))
+          .catch(error => console.error('Erreur lors du chargement des cartes', error));
       } else {
         const errorData = await response.json();
         console.error(

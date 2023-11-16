@@ -6,9 +6,6 @@ const EditSkillForm = ({ skillData, updateSkills }) => {
         image: "",
         nom: "",
         alt: "",
-        description: "",
-        technos: "",
-        liens: "",
     });
 
     useEffect(() => {

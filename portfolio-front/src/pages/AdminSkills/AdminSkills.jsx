@@ -16,7 +16,6 @@ const AdminSkills = () => {
         setSkills(newSkills);
     };
 
-
     const handleOpenModal = (skill) => {
         setSelectedSkill(skill);
         setModalOpen(true);
