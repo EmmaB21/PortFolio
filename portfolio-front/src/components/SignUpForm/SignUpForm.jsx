@@ -28,7 +28,7 @@ const FormSignUp = () => {
       } else {
         // On gère les erreurs en fonction de la réponse du serveur
         const errorData = await response.json();
-        setError(errorData.error || 'Une erreur s\'est produite lors de la connexion.');
+        setError(errorData.error || "Une erreur s'est produite lors de la connexion.");
       }
     } catch (error) {
       console.error("Une erreur s'est produite lors de la connexion", error);

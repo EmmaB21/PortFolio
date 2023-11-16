@@ -39,7 +39,7 @@ const EditSkillForm = ({ skillData, updateSkills }) => {
         const token = localStorage.getItem("token");
 
         try {
-            const response = await fetch(`http://localhost:3001/api/skills${skillData.id}`, {
+            const response = await fetch(`http://localhost:3001/api/skills/${skillData.id}`, {
                 method: "PUT",
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -49,6 +49,10 @@ const EditSkillForm = ({ skillData, updateSkills }) => {
 
             if (response.ok) {
                 setIsSubmitted(true)
+                setTimeout(function () {
+                    e.target.reset(); // On réinitialise le formulaire
+                    setIsSubmitted(false);
+                }, 1000);
                 // Appeler la fonction pour mettre à jour les projets dans le composant parent
                 fetch('http://localhost:3001/api/skills')
                   .then(response => response.json())

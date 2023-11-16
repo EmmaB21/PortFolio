@@ -45,7 +45,7 @@ const EditProjectForm = ({ projectData, updateProjects }) => {
         const token = localStorage.getItem("token");
 
         try {
-            const response = await fetch(`http://localhost:3001/api/projects${projectData.id}`, {
+            const response = await fetch(`http://localhost:3001/api/projects/${projectData.id}`, {
                 method: "PUT",
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -55,6 +55,10 @@ const EditProjectForm = ({ projectData, updateProjects }) => {
 
             if (response.ok) {
                 setIsSubmitted(true)
+                setTimeout(function () {
+                    e.target.reset(); // On réinitialise le formulaire
+                    setIsSubmitted(false);
+                }, 1000);
                 fetch('http://localhost:3001/api/projects')
                     .then(response => response.json())
                     .then(data => updateProjects(data))

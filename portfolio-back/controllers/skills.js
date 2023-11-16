@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 exports.createSkill = async (req, res, next) => {
     try {
         const { nom, alt } = req.body;
-        const image = req.file.path;
+        const image = req.file.filename;
         const newSkill = await prisma.skill.create({
             data: {
                 nom,
@@ -26,7 +26,7 @@ exports.createSkill = async (req, res, next) => {
 exports.modifySkill = async (req, res, next) => {
     try {
         const { nom, alt } = req.body;
-        const image = req.file.path;
+        const image = req.file.filename;
         const updatedSkill = await prisma.skill.update({
             where: {
                 id: parseInt(req.params.id),

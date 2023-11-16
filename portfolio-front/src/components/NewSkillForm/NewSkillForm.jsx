@@ -24,6 +24,10 @@ const NewSkillForm = ({updateSkills}) => {
       if (response.ok) {
         setIsSubmitted(true);
         form.reset(); // On réinitialise le formulaire après soumission si nécessaire
+        setTimeout(function () {
+            e.target.reset(); // On réinitialise le formulaire
+            setIsSubmitted(false);
+        }, 1000);
         // Appeler la fonction pour mettre à jour les projets dans le composant parent
         fetch('http://localhost:3001/api/skills')
           .then(response => response.json())

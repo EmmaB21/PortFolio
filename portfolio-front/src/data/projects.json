@@ -46,7 +46,7 @@
         "nom": "Ohmyfood",
         "image": "/projects/Ohmyfood2.webp",
         "alt": "Ohmyfood",
-        "description": "Ohmyfood est jeune startup qui voudrait s'imposer sur le marché de la restauration. J'ai développé un site responsive en mobile-first en respectant les maquettes et en ajoutant des animations CSS.",
+        "description": "Ohmyfood est une jeune startup qui voudrait s'imposer sur le marché de la restauration. J'ai développé un site responsive en mobile-first en respectant les maquettes et en ajoutant des animations CSS.",
         "technos": "CSS, Sass",
         "liens": [
             {

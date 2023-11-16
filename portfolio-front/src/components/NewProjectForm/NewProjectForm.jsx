@@ -9,7 +9,9 @@ const NewProjectForm = ({updateProjects}) => {
     const form = e.target;
     const formData = new FormData(form); 
     console.log(formData)
-  
+    
+    
+
     try {
       const token = localStorage.getItem("token");
       const response = await fetch("http://localhost:3001/api/projects", {
@@ -24,6 +26,10 @@ const NewProjectForm = ({updateProjects}) => {
       if (response.ok) {
         setIsSubmitted(true);
         form.reset(); // On réinitialise le formulaire après soumission si nécessaire
+        setTimeout(function () {
+          e.target.reset(); // On réinitialise le formulaire
+          setIsSubmitted(false);
+      }, 1000);
         // Appeler la fonction pour mettre à jour les projets dans le composant parent
         fetch('http://localhost:3001/api/projects')
           .then(response => response.json())
@@ -70,7 +76,7 @@ const NewProjectForm = ({updateProjects}) => {
                </div>
                 <div className="form-item">
                    <textarea name="liens" id="liens" required></textarea>
-                    <label htmlFor="liens">Liens (au format JSON) :</label>
+                    <label htmlFor="liens">Liens (au format JSON : tableau d'objets "nom":"", "lien":"") :</label>
                 </div>
                 <button type="submit" className="submit-btn">
                      {isSubmitted ? "Envoyé !" : "Envoyer"}

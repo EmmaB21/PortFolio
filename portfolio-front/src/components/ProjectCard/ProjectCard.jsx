@@ -1,8 +1,7 @@
 function ProjectCard({ project }) {
     return (
         <article className="projectCard">
-            {/* <div className={`cover cover${project.id}`} > */}
-            <div className="cover" style={{ backgroundImage: `url(${project.image})` }}>
+            <div className="cover" style={{ backgroundImage: `url(http://localhost:3001/images/${project.image})` }}>
                 <h2 className="card-title">{project.nom}</h2>
                 <span className="technos">{project.technos}</span>
                 <div className="card-back">
@@ -11,25 +10,13 @@ function ProjectCard({ project }) {
                         {project.liens && project.liens.map((lien, index) => (
                             <a
                                 key={index}
-                                href={lien[Object.keys(lien)[0]]}
+                                href={lien.lien}
                                 target='_blank'
                                 rel="noopener noreferrer">
-                                {Object.keys(lien)[0]}
+                                {lien.nom}
                             </a>
                         ))}
                     </div>
-
-                    {/* <div className="card-links">
-                        {project.liens.map((lien, index) => (
-                            <a 
-                            key={index} 
-                            href={lien[Object.keys(lien)[0]]} 
-                            target='_blank'
-                            rel="noopener noreferrer">
-                                {Object.keys(lien)[0]}
-                            </a>
-                        ))}
-                    </div> */}
                 </div>
             </div>
         </article>

@@ -14,14 +14,11 @@ const FormLogin = () => {
   const submitForm = async (e) => {
     e.preventDefault()
 
-    console.log('FormData:', formData); // Ajoutez cette ligne
-
-
     try {
       const response = await fetch('http://localhost:3001/api/auth/login', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json', // Assurez-vous d'ajouter cette ligne pour indiquer le type de contenu JSON
+          'Content-Type': 'application/json', 
         },
         body: JSON.stringify(formData),
       });

@@ -8,7 +8,8 @@ exports.createProject = async (req, res, next) => {
     try {
         const { nom, alt, description, technos, liens } = req.body;
         console.log('Received request body:', req.body);
-        const image = req.file.path;
+        const image = req.file.filename;
+        console.log(req.file)
         const newProject = await prisma.project.create({
             data: {
                 nom,
@@ -16,13 +17,16 @@ exports.createProject = async (req, res, next) => {
                 alt,
                 description,
                 technos,
-                liens,
+                liens: {
+                    create:JSON.parse(liens)
+                }
             },
         });
 
 
         res.status(201).json({ message: 'Projet enregistré avec succès!', project: newProject });
     } catch (error) {
+        console.error(error)
         res.status(400).json({ error });
     }
 };
@@ -32,7 +36,7 @@ exports.createProject = async (req, res, next) => {
 exports.modifyProject = async (req, res, next) => {
     try {
         const { nom, alt, description, technos, liens } = req.body;
-        const image = req.file.path;
+        const image = req.file.filename;
         const updatedProject = await prisma.project.update({
             where: {
                 id: parseInt(req.params.id),
@@ -43,7 +47,9 @@ exports.modifyProject = async (req, res, next) => {
                 alt,
                 description,
                 technos,
-                liens
+                liens: {
+                    create:JSON.parse(liens)
+                }
             },
         });
 
@@ -71,7 +77,11 @@ exports.deleteProject = async (req, res, next) => {
 // Route GET pour récupérer tous les projets
 exports.getAllProjects = async (req, res, next) => {
     try {
-        const projects = await prisma.project.findMany();
+        const projects = await prisma.project.findMany({
+            include:{
+                liens:true
+            }
+        });
 
         res.status(200).json(projects);
     } catch (error) {
