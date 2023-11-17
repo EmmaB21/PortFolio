@@ -26,7 +26,9 @@ exports.createSkill = async (req, res, next) => {
 exports.modifySkill = async (req, res, next) => {
     try {
         const { nom, alt } = req.body;
+        console.log(req.body);
         const image = req.file.filename;
+        console.log(req.file);
         const updatedSkill = await prisma.skill.update({
             where: {
                 id: parseInt(req.params.id),

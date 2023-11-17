@@ -120,11 +120,11 @@ const EditProjectForm = ({ projectData, updateProjects }) => {
                     <label htmlFor="description">description:</label>
                 </div>
                 <div className="form-item">
-                    <input type="text" name="technos" id="technos" required />
+                    <input type="text" name="technos" id="technos" required onChange={handleInputChange}/>
                     <label htmlFor="technos">Technos:</label>
                 </div>
                 <div className="form-item">
-                    <textarea name="liens" id="liens" required></textarea>
+                    <textarea name="liens" id="liens" required onChange={handleInputChange}></textarea>
                     <label htmlFor="liens">Liens (au format JSON) :</label>
                 </div>
                 <button type="submit" className="submit-btn">

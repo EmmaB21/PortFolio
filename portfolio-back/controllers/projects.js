@@ -36,7 +36,9 @@ exports.createProject = async (req, res, next) => {
 exports.modifyProject = async (req, res, next) => {
     try {
         const { nom, alt, description, technos, liens } = req.body;
+        console.log('Received request body:', req.body);
         const image = req.file.filename;
+        console.log(req.file)
         const updatedProject = await prisma.project.update({
             where: {
                 id: parseInt(req.params.id),

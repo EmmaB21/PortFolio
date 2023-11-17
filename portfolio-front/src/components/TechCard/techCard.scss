@@ -2,8 +2,8 @@
 @import '../../mixins.scss';
 
 .techCard {
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 130px;
     background-color: $color9;
     opacity: 0.9;
     padding: 10px;
@@ -16,15 +16,15 @@
         width: 100px;
     }
     p {
-        font-size: 16px;
+        font-size: 20px;
         margin-top: 5px;
         color: $main-color;
         opacity: 0.9;
     }
 
     img {
-        width: 60px;
-        height: 60px;
+        width: 80px;
+        height: 80px;
         opacity: 0.9;
         @media (max-width: 890px) {
             width: 50px;

@@ -37,7 +37,7 @@ const EditSkillForm = ({ skillData, updateSkills }) => {
     const handleFormSubmit = async (e) => {
         e.preventDefault();
         const token = localStorage.getItem("token");
-
+        console.log('body :', localFormData)
         try {
             const response = await fetch(`http://localhost:3001/api/skills/${skillData.id}`, {
                 method: "PUT",
@@ -45,6 +45,7 @@ const EditSkillForm = ({ skillData, updateSkills }) => {
                     Authorization: `Bearer ${token}`,
                 },
                 body: localFormData,
+                
             });
 
             if (response.ok) {
