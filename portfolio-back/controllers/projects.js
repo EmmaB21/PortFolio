@@ -61,7 +61,7 @@ exports.modifyProject = async (req, res, next) => {
     }
 };
 
-// Route DELETE pour supprimet un projet
+// Route DELETE pour supprimer un projet
 exports.deleteProject = async (req, res, next) => {
     try {
         await prisma.project.delete({

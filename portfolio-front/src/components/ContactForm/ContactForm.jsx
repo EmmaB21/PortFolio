@@ -46,7 +46,7 @@ const Form = () => {
                 >
                     <div className="form-item">
                         <input type="text" name="sender" id="sender" required />
-                        <label htmlFor="name">Nom:</label>
+                        <label htmlFor="sender">Nom:</label>
                     </div>
                     <div className="form-item">
                         <input type="text" name="email" id="email" required />

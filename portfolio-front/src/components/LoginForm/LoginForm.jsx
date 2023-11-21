@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import { fetchInfo } from "../../service/API";
 
 const FormLogin = () => {
 
@@ -15,7 +16,7 @@ const FormLogin = () => {
     e.preventDefault()
 
     try {
-      const response = await fetch('http://localhost:3001/api/auth/login', {
+      const response = await fetch(fetchInfo.login, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json', 

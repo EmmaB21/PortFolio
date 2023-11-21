@@ -31,17 +31,4 @@ app.use('/api/projects', projectRoutes);
 app.use('/api/auth', userRoutes);
 app.use('/api/skills', skillRoutes);
 
-// Middleware d'erreur global
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-
-  if (err instanceof Prisma.PrismaClientValidationError) {
-    console.log('Validation Prisma échouée');
-    return res.status(400).json({ error: 'Validation Prisma échouée' });
-  }
-
-  res.status(500).send('Something went wrong!');
-});
-
-
 module.exports = app;

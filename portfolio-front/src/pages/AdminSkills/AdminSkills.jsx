@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { fetchInfo } from '../../service/API';
 import TechCard from '../../components/TechCard/TechCard'
 import NewSkillForm from '../../components/NewSkillForm/NewSkillForm';
 import EditModal from '../../components/EditModal/EditModal';
@@ -38,7 +39,7 @@ const AdminSkills = () => {
 
     useEffect(() => {
         // Effectue une requête GET 
-        fetch('http://localhost:3001/api/skills')
+        fetch(fetchInfo.skills)
             .then(response => response.json())
             .then(data =>
                 setSkills(data))

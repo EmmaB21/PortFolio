@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import img from '../../img/about/silhouette.png'
+import { fetchInfo } from '../../service/API';
+import img from '../../img/about/silhouette.webp'
 import TechCard from "../TechCard/TechCard";
 // import data from '../../data/skills.json';
 
@@ -8,8 +9,8 @@ const About = () => {
   const [skills, setSkills] = useState([]);
 
     useEffect(() => {
-      // Effectue une requête GET 
-      fetch('http://localhost:3001/api/skills')
+      // Requête GET pour récupérer les cartes "skills"
+      fetch(fetchInfo.skills)
         .then(response => response.json())
         .then(data => 
             setSkills(data))
@@ -24,10 +25,10 @@ const About = () => {
         <div className="skills">
           <h3 className="skills__title">Mon parcours</h3>
           <div className="skills__text">
-            <p>J'ai étudié la littérature. <span>J'ai appris</span> à garder l'esprit ouvert et à développer mon sens critique...</p>
+            <p>Dans mes précédentes aventures, j'ai étudié la littérature. <span>J'ai appris</span> à garder l'esprit ouvert et à développer mon sens critique...</p>
             <p>J'ai été chargée de clientèle. <span>J'ai appris</span> à anticiper les problèmes et à imaginer des solutions...</p>
             <p>J'ai été correctrice. <span>J'ai appris</span> à faire attention aux détails et à me montrer exigeante...</p>
-            <p>Aujourd'hui, j'ai terminé ma formation d'intégrateur Web chez OpenClassrooms et j'ai développé de nouvelles compétences.<br />Voici ce que <span className="innerText">j'ai appris</span> (et ce n'est qu'un début !):</p>
+            <p>Aujourd'hui, je découvre avec envie et curiosité l'univers du développement Web. Au cours de ma formation chez OpenClassrooms, j'ai acquis de nouvelles compétences.<br /><span className="innerText">J'ai appris</span> les bases, certes. Mais la maîtrise naît de la pratique. M'accompagnerez-vous dans cette nouvelle aventure ?</p>
           </div>
         </div>
         <div className="portrait">

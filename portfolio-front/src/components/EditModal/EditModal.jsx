@@ -7,7 +7,8 @@ const EditModal = ({ data, type, onClose, updateProjects, updateSkills}) => {
     <div className="edit-modal">
       <div className="edit-modal-content">
         {type === "project" && (
-          <EditProjectForm projectData={data}
+          <EditProjectForm 
+          projectData={data}
           updateProjects={updateProjects} />
         )}
         {type === "skill" && (

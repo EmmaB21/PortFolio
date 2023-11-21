@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { fetchInfo } from '../../service/API';
 import ProjectCard from '../../components/ProjectCard/ProjectCard'
 import NewProjectForm from '../../components/NewProjectForm/NewProjectForm';
 import EditModal from '../../components/EditModal/EditModal';
@@ -38,7 +39,7 @@ const AdminProjects = () => {
 
     useEffect(() => {
         // Effectue une requête GET 
-        fetch('http://localhost:3001/api/projects')
+        fetch(fetchInfo.projects)
             .then(response => response.json())
             .then(data =>
                 setProjects(data))
@@ -55,7 +56,7 @@ const AdminProjects = () => {
                 <button className="projects__part__btn" onClick={navigateToHome}>Page Principale</button>
                 <section className="projects__part-container">
                     {projects.map(project => (
-                        <div key={project.id} onClick={() => handleOpenModal(project, 'edit')}>
+                        <div key={project.id} onClick={() => handleOpenModal(project)}>
                             <ProjectCard project={project} />
                         </div>
                     ))}

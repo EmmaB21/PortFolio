@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { fetchInfo } from "../../service/API";
 
 const FormSignUp = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -13,7 +14,7 @@ const FormSignUp = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:3001/api/auth/signup', {
+      const response = await fetch(fetchInfo.signup, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

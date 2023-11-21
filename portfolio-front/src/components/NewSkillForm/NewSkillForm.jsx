@@ -23,7 +23,6 @@ const NewSkillForm = ({updateSkills}) => {
 
       if (response.ok) {
         setIsSubmitted(true);
-        form.reset(); // On réinitialise le formulaire après soumission si nécessaire
         setTimeout(function () {
             e.target.reset(); // On réinitialise le formulaire
             setIsSubmitted(false);

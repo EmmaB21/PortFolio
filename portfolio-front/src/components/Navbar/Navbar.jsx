@@ -1,7 +1,6 @@
 import linkedin from "../../img/reseaux/linkedin-logo-white.webp"
 import github from "../../img/reseaux/github-mark-white.webp"
-// import github from "../../img/icones/github.webp"
-// import linkedin from "../../img/icones/LinkedIn.webp"
+
 
 import { useEffect, useState } from "react";
 

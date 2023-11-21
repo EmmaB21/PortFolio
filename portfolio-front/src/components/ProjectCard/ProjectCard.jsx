@@ -1,7 +1,9 @@
+import { baseURL } from "../../service/API"
+
 function ProjectCard({ project }) {
     return (
         <article className="projectCard">
-            <div className="cover" style={{ backgroundImage: `url(http://localhost:3001/images/${project.image})` }}>
+            <div className="cover" style={{ backgroundImage: `url(${baseURL}/images/${project.image})` }}>
                 <h2 className="card-title">{project.nom}</h2>
                 <span className="technos">{project.technos}</span>
                 <div className="card-back">

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { fetchInfo } from '../../service/API';
 import ProjectCard from '../../components/ProjectCard/ProjectCard'
 
 const Projects = () => {
@@ -7,7 +8,7 @@ const Projects = () => {
 
     useEffect(() => {
       // Effectue une requête GET 
-      fetch('http://localhost:3001/api/projects')
+      fetch(fetchInfo.projects)
         .then(response => response.json())
         .then(data => 
             setProjects(data))

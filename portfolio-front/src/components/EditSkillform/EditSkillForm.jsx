@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { fetchInfo } from "../../service/API";
 
 const EditSkillForm = ({ skillData, updateSkills }) => {
     const [isSubmitted, setIsSubmitted] = useState(false);
@@ -39,7 +40,7 @@ const EditSkillForm = ({ skillData, updateSkills }) => {
         const token = localStorage.getItem("token");
         console.log('body :', localFormData)
         try {
-            const response = await fetch(`http://localhost:3001/api/skills/${skillData.id}`, {
+            const response = await fetch(`${fetchInfo.skills}/${skillData.id}`, {
                 method: "PUT",
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -55,7 +56,7 @@ const EditSkillForm = ({ skillData, updateSkills }) => {
                     setIsSubmitted(false);
                 }, 1000);
                 // Appeler la fonction pour mettre à jour les projets dans le composant parent
-                fetch('http://localhost:3001/api/skills')
+                fetch(fetchInfo.skills)
                   .then(response => response.json())
                   .then(data => updateSkills(data))
                   .catch(error => console.error('Erreur lors du chargement des cartes', error));
@@ -72,7 +73,7 @@ const EditSkillForm = ({ skillData, updateSkills }) => {
         const token = localStorage.getItem("token");
         try {
             // Effectuer la requête DELETE pour supprimer la carte
-            const response = await fetch(`http://localhost:3001/api/skills/${skillData.id}`, {
+            const response = await fetch(`${fetchInfo.skills}/${skillData.id}`, {
                 method: 'DELETE',
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -80,9 +81,9 @@ const EditSkillForm = ({ skillData, updateSkills }) => {
             });
 
             if (response.ok) {
-                setIsSubmitted(true)
+                // setIsSubmitted(true)
                 // Appeler la fonction pour mettre à jour les projets dans le composant parent
-                fetch('http://localhost:3001/api/skills')
+                fetch(fetchInfo.skills)
                   .then(response => response.json())
                   .then(data => updateSkills(data))
                   .catch(error => console.error('Erreur lors du chargement des cartes', error));

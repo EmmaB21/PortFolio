@@ -1,0 +1,408 @@
+swagger: '2.0'
+info:
+  title: Among Others Things. Documentation de l'API
+  version: 1.0.0
+paths:
+  /users/signup:
+    post:
+      summary: Créer un nouvel utilisateur
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '201':
+          description: Utilisateur enregistré avec succès
+        '500':
+          description: Erreur de serveur
+
+  /users/login:
+    post:
+      summary: Connecter un utilisateur
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: Connexion réussie
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  userId:
+                    type: integer
+                  token:
+                    type: string
+        '401':
+          description: Paire login/mot de passe incorrecte
+        '500':
+          description: Erreur de serveur
+
+  /projects:
+    get:
+      summary: Récupérer tous les projets
+      responses:
+        '200':
+          description: Liste de projets récupérée avec succès
+        '400':
+          description: Erreur de demande
+
+    post:
+      summary: Créer un nouveau projet
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                nom:
+                  type: string
+                alt:
+                  type: string
+                description:
+                  type: string
+                technos:
+                  type: string
+                liens:
+                  type: string
+                image:
+                  type: string
+                  format: binary
+      responses:
+        '201':
+          description: Projet enregistré avec succès
+        '400':
+          description: Erreur de demande
+
+  /projects/{id}:
+    get:
+      summary: Récupérer un projet par ID
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Projet récupéré avec succès
+        '404':
+          description: Projet non trouvé
+        '500':
+          description: Erreur de serveur
+
+    put:
+      summary: Modifier un projet par ID
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                nom:
+                  type: string
+                alt:
+                  type: string
+                description:
+                  type: string
+                technos:
+                  type: string
+                liens:
+                  type: string
+                image:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: Projet modifié avec succès
+        '400':
+          description: Erreur de demande
+        '404':
+          description: Projet non trouvé
+          
+    delete:
+      summary: Supprimer un projet par ID
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Projet supprimé avec succès
+        '404':
+          description: Projet non trouvé
+        '500':
+          description: Erreur de serveur
+
+  /skills:
+    get:
+      summary: Récupérer toutes les compétences
+      responses:
+        '200':
+          description: Liste de compétences récupérée avec succès
+        '400':
+          description: Erreur de demande
+
+    post:
+      summary: Créer une nouvelle compétence
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                nom:
+                  type: string
+                alt:
+                  type: string
+                image:
+                  type: string
+                  format: binary
+      responses:
+        '201':
+          description: Compétence enregistrée avec succès
+        '400':
+          description: Erreur de demande
+
+  /skills/{id}:
+    get:
+      summary: Récupérer une compétence par ID
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Compétence récupérée avec succès
+        '404':
+          description: Compétence non trouvée
+        '500':
+          description: Erreur de serveur
+
+    put:
+      summary: Modifier une compétence par ID
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                nom:
+                  type: string
+                alt:
+                  type: string
+                image:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: Compétence modifiée avec succès
+        '400':
+          description: Erreur de demande
+        '404':
+          description: Compétence non trouvée
+
+    delete:
+      summary: Supprimer une compétence par ID
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Compétence supprimée avec succès
+        '404':
+          description: Compétence non trouvée
+        '500':
+          description: Erreur de serveur
+
+security:
+  - BearerAuth: []
+  
+components:
+  schemas:
+    UserSignupRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          description: Adresse e-mail de l'utilisateur
+        password:
+          type: string
+          description: Mot de passe de l'utilisateur
+
+    UserLoginRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          description: Adresse e-mail de l'utilisateur
+        password:
+          type: string
+          description: Mot de passe de l'utilisateur
+
+    UserLoginResponse:
+      type: object
+      properties:
+        userId:
+          type: integer
+          description: ID de l'utilisateur
+        token:
+          type: string
+          description: Token d'authentification
+
+    ProjectRequest:
+      type: object
+      properties:
+        nom:
+          type: string
+          description: Nom du projet
+        alt:
+          type: string
+          description: Texte alternatif de l'image
+        description:
+          type: string
+          description: Description du projet
+        technos:
+          type: string
+          description: Technologies utilisées dans le projet
+        liens:
+          type: string
+          description: Liens associés au projet
+        image:
+          type: string
+          format: binary
+          description: Image du projet (téléchargement de fichier)
+
+    ProjectResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Message de succès
+        project:
+          $ref: '#/components/schemas/Project'
+
+    Project:
+      type: object
+      properties:
+        nom:
+          type: string
+          description: Nom du projet
+        image:
+          type: string
+          description: Nom du fichier image
+        alt:
+          type: string
+          description: Texte alternatif de l'image
+        description:
+          type: string
+          description: Description du projet
+        technos:
+          type: string
+          description: Technologies utilisées dans le projet
+        liens:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+          description: Liens associés au projet
+
+    Link:
+      type: object
+      properties:
+        label:
+          type: string
+          description: Libellé du lien
+        url:
+          type: string
+          description: URL du lien
+
+    SkillRequest:
+      type: object
+      properties:
+        nom:
+          type: string
+          description: Nom de la compétence
+        alt:
+          type: string
+          description: Texte alternatif de l'image
+        image:
+          type: string
+          format: binary
+          description: Image de la compétence (téléchargement de fichier)
+
+    SkillResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Message de succès
+        skill:
+          $ref: '#/components/schemas/Skill'
+
+    Skill:
+      type: object
+      properties:
+        nom:
+          type: string
+          description: Nom de la compétence
+        image:
+          type: string
+          description: Nom du fichier image
+        alt:
+          type: string
+          description: Texte alternatif de l'image
