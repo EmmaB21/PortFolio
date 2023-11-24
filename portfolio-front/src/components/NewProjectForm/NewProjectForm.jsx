@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { fetchInfo } from "../../service/API";
 
 const NewProjectForm = ({updateProjects}) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -14,7 +15,7 @@ const NewProjectForm = ({updateProjects}) => {
 
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:3001/api/projects", {
+      const response = await fetch(fetchInfo.projects, {
         method: "POST",
         headers: {
         //   "Content-Type": "application/json",
@@ -30,7 +31,7 @@ const NewProjectForm = ({updateProjects}) => {
           setIsSubmitted(false);
       }, 1000);
         // Appeler la fonction pour mettre à jour les projets dans le composant parent
-        fetch('http://localhost:3001/api/projects')
+        fetch(fetchInfo.projects)
           .then(response => response.json())
           .then(data => updateProjects(data))
           .catch(error => console.error('Erreur lors du chargement des cartes', error));

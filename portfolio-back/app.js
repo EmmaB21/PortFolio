@@ -1,3 +1,7 @@
+if (typeof(PhusionPassenger) !== 'undefined') {
+  PhusionPassenger.configure({ autoInstall: false });
+}
+
 const express = require('express');
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
@@ -30,5 +34,11 @@ const skillRoutes = require('./routes/skills');
 app.use('/api/projects', projectRoutes);
 app.use('/api/auth', userRoutes);
 app.use('/api/skills', skillRoutes);
+
+if (typeof(PhusionPassenger) !== 'undefined') {
+  app.listen('passenger');
+} else {
+  app.listen(3000);
+}
 
 module.exports = app;
