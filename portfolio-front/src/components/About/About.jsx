@@ -28,7 +28,7 @@ const About = () => {
             <p>Dans mes précédentes aventures, j'ai étudié la littérature. <span>J'ai appris</span> à garder l'esprit ouvert et à développer mon sens critique...</p>
             <p>J'ai été chargée de clientèle. <span>J'ai appris</span> à anticiper les problèmes et à imaginer des solutions...</p>
             <p>J'ai été correctrice. <span>J'ai appris</span> à faire attention aux détails et à me montrer exigeante...</p>
-            <p>Aujourd'hui, je découvre avec envie et curiosité l'univers du développement Web. Au cours de ma formation chez OpenClassrooms, j'ai acquis de nouvelles compétences.<br /><span className="innerText">J'ai appris</span> les bases, certes. Mais la maîtrise naît de la pratique. M'accompagnerez-vous dans cette nouvelle aventure ?</p>
+            <p>Aujourd'hui, je découvre avec envie et curiosité l'univers du développement Web. Au cours de ma formation chez OpenClassrooms, j'ai acquis de nouvelles compétences.<br /><span className="innerText">J'ai appris</span> à manier de nouveaux outils, certes. Mais la maîtrise naît de la pratique. M'accompagnerez-vous dans cette nouvelle aventure ?</p>
           </div>
         </div>
         <div className="portrait">
