@@ -43,7 +43,7 @@
         }
 
         .links {
-            @include flex (center, "", "");
+            @include flex (center, normal, row);
             padding-top: 50px;
 
             @media only screen and (max-width: 400px) {

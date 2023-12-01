@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { fetchInfo } from '../../service/API';
 import img from '../../img/about/silhouette.webp'
 import TechCard from "../TechCard/TechCard";
-// import data from '../../data/skills.json';
 
 const About = () => {
 

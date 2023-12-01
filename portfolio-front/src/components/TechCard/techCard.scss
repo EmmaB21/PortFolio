@@ -14,12 +14,16 @@
     margin: auto;
     @media (max-width: 890px) {
         width: 100px;
+        height: 115px;
     }
     p {
         font-size: 20px;
         margin-top: 5px;
         color: $main-color;
         opacity: 0.9;
+        @media (max-width: 890px) {
+            font-size: 16px;
+        }
     }
 
     img {

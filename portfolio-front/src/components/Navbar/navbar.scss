@@ -11,7 +11,7 @@
     transition: 800ms ease-in-out;
     padding: 40px;
     @include typo ('roboto', 20px, );
-    @include flex (space-between, '', row);
+    @include flex (space-between, normal, row);
     color: $white-text-color;
 
     @media (max-width: 1400px) {
@@ -124,7 +124,7 @@
 
     .nav-links.active {
         /* Afficher les liens lorsque la classe "active" est présente */
-        @include flex ("","", column);
+        @include flex (normal, normal, column);
         background-color: $main-color;
         padding-top: 40px;
         padding-bottom: 12px;

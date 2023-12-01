@@ -13,13 +13,13 @@ const FormLogin = () => {
   };
 
   const submitForm = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     try {
       const response = await fetch(fetchInfo.login, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json', 
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
       });
@@ -34,7 +34,6 @@ const FormLogin = () => {
         navigate('/admin-page-projects');
 
       } else {
-        // On gère les erreurs en fonction de la réponse du serveur
         const errorData = await response.json();
         setError(errorData.message);
       }
@@ -46,10 +45,10 @@ const FormLogin = () => {
 
   return (
     <div className="login-form-wrapper">
-      <form id="form" className="login-form" onSubmit={submitForm}>
+      <form className="login-form" onSubmit={submitForm}>
         <div className="form-item">
-          <input type="email" name="email" id="email" value={formData.email} onChange={handleChange} required />
-          <label htmlFor="email">Email:</label>
+          <input type="email" name="email" id="user" value={formData.email} onChange={handleChange} required />
+          <label htmlFor="user">Email:</label>
         </div>
         <div className="form-item">
           <input type="password" name="password" id="password" value={formData.password} onChange={handleChange} required />
