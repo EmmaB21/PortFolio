@@ -48,6 +48,18 @@
     font-style: oblique;
     @include typo ("roboto", 20px, 500);
     transition: 0.3s;
+    @media (max-width: 1030px) {
+      padding: 6px 8px;
+      @include typo ("roboto", 12px, 400);
+      right: 30px;
+      top:55px;
+    }
+    @media (max-width: 1400px) {
+      padding: 6px 8px;
+      @include typo ("roboto", 14px, 400);
+      right: 50px;
+      top:90px;
+    }
     &:hover {
       background-color: $main-color;
     }
