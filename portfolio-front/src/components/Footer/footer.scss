@@ -1,16 +1,16 @@
 .footer {
-    height: 80px;
-    width: 100%;
-    background-color: $main-color;
-    @include flex (center, center, row);
-    p {
-        @include typo ('dancing script', 20px, 200);
-        color: $white-text-color;
-        margin: auto;
-    }
-    .modal-link {
-        text-align: start;
-        padding-left: 30px;
-        cursor: pointer;
-    }
+  height: 80px;
+  width: 100%;
+  background-color: $main-color;
+  @include flex(center, center, row);
+  p {
+    @include typo("dancing script", 20px, 200);
+    color: $white-text-color;
+    margin: auto;
+  }
+  .modal-link {
+    text-align: start;
+    padding-left: 30px;
+    cursor: pointer;
+  }
 }

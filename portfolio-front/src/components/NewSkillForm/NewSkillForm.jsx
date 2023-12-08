@@ -1,22 +1,22 @@
 import { useState } from "react";
 import { fetchInfo } from "../../service/API";
 
-const NewSkillForm = ({updateSkills}) => {
+const NewSkillForm = ({ updateSkills }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
 
   const submitForm = async (e) => {
     e.preventDefault();
     const form = e.target;
-    const formData = new FormData(form); 
+    const formData = new FormData(form);
     console.log(formData)
-  
+
     try {
       const token = localStorage.getItem("token");
       const response = await fetch(fetchInfo.skills, {
         method: "POST",
         headers: {
-        //   "Content-Type": "application/json",
+          //   "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
         body: formData,
@@ -25,8 +25,8 @@ const NewSkillForm = ({updateSkills}) => {
       if (response.ok) {
         setIsSubmitted(true);
         setTimeout(function () {
-            e.target.reset(); // On réinitialise le formulaire
-            setIsSubmitted(false);
+          e.target.reset(); // On réinitialise le formulaire
+          setIsSubmitted(false);
         }, 1000);
         // Appeler la fonction pour mettre à jour les projets dans le composant parent
         fetch(fetchInfo.skills)
@@ -53,20 +53,20 @@ const NewSkillForm = ({updateSkills}) => {
         onSubmit={submitForm}
       >
         <div className="form-item">
-                  <input type="file" name="image" id="image" required />
-                  {/* <label htmlFor="image">Image:</label> */}
-               </div>
-               <div className="form-item">
-                   <input type="text" name="nom" id="nom" required />
-                  <label htmlFor="nom">Nom:</label>
-               </div>
-              <div className="form-item">
-                  <input type="text" name="alt" id="alt" required />
-                  <label htmlFor="alt">Alt:</label>
-              </div>
-                <button type="submit" className="submit-btn">
-                     {isSubmitted ? "Envoyé !" : "Envoyer"}
-                </button>
+          <input type="file" name="image" id="image" required />
+          {/* <label htmlFor="image">Image:</label> */}
+        </div>
+        <div className="form-item">
+          <input type="text" name="nom" id="nom" required />
+          <label htmlFor="nom">Nom:</label>
+        </div>
+        <div className="form-item">
+          <input type="text" name="alt" id="alt" required />
+          <label htmlFor="alt">Alt:</label>
+        </div>
+        <button type="submit" className="submit-btn">
+          {isSubmitted ? "Envoyé !" : "Envoyer"}
+        </button>
       </form>
     </div>
   );

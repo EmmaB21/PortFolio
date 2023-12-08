@@ -62,7 +62,7 @@ const AdminSkills = () => {
                     ))}
                 </section>
             </div>
-            <NewSkillForm updateSkills={updateSkills}/>
+            <NewSkillForm updateSkills={updateSkills} />
             {isModalOpen && (
                 <EditModal
                     data={selectedSkill}

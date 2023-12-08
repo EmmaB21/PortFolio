@@ -9,26 +9,30 @@ const EditProjectForm = ({ projectData, updateProjects }) => {
         try {
             // Effectuer la requête DELETE pour supprimer le projet
             const response = await fetch(`${fetchInfo.projects}/${projectData.id}`, {
-                method: 'DELETE',
+                method: "DELETE",
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
             });
 
             if (response.ok) {
-                setIsSubmitted(true)
+                setIsSubmitted(true);
                 // Appeler la fonction pour mettre à jour les projets dans le composant parent
                 fetch(fetchInfo.projects)
-                    .then(response => response.json())
-                    .then(data => updateProjects(data))
-                    .catch(error => console.error('Erreur lors du chargement des cartes', error));
-
+                    .then((response) => response.json())
+                    .then((data) => updateProjects(data))
+                    .catch((error) =>
+                        console.error("Erreur lors du chargement des cartes", error)
+                    );
             } else {
                 const errorData = await response.json();
                 console.error("Erreur lors de la requête :", errorData);
             }
         } catch (error) {
-            console.error("Une erreur s'est produite lors de la suppression du projet", error);
+            console.error(
+                "Une erreur s'est produite lors de la suppression du projet",
+                error
+            );
         }
     };
 
@@ -39,7 +43,7 @@ const EditProjectForm = ({ projectData, updateProjects }) => {
             </button>
         </div>
     );
-}
+};
 export default EditProjectForm;
 
 // import React, { useState, useEffect } from "react";

@@ -1,24 +1,20 @@
 import { useState } from "react";
 import { fetchInfo } from "../../service/API";
 
-const NewProjectForm = ({updateProjects}) => {
+const NewProjectForm = ({ updateProjects }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
-
 
   const submitForm = async (e) => {
     e.preventDefault();
     const form = e.target;
-    const formData = new FormData(form); 
-    console.log(formData)
-    
-    
+    const formData = new FormData(form);
+    console.log(formData);
 
     try {
       const token = localStorage.getItem("token");
       const response = await fetch(fetchInfo.projects, {
         method: "POST",
         headers: {
-        //   "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
         body: formData,
@@ -29,58 +25,66 @@ const NewProjectForm = ({updateProjects}) => {
         setTimeout(function () {
           e.target.reset(); // On réinitialise le formulaire
           setIsSubmitted(false);
-      }, 1000);
-        // Appeler la fonction pour mettre à jour les projets dans le composant parent
+        }, 1000);
+        // On appelle la fonction pour mettre à jour les projets dans le composant parent
         fetch(fetchInfo.projects)
-          .then(response => response.json())
-          .then(data => updateProjects(data))
-          .catch(error => console.error('Erreur lors du chargement des cartes', error));
+          .then((response) => response.json())
+          .then((data) => updateProjects(data))
+          .catch((error) =>
+            console.error("Erreur lors du chargement des cartes", error)
+          );
       } else {
         const errorData = await response.json();
         console.error(
-          errorData.message || "Une erreur s'est produite lors de l'ajout du projet."
+          errorData.message ||
+          "Une erreur s'est produite lors de l'ajout du projet."
         );
       }
     } catch (error) {
-      console.error("Une erreur s'est produite lors de l'envoi du formulaire", error);
-      // On gère les erreurs ici
+      console.error(
+        "Une erreur s'est produite lors de l'envoi du formulaire",
+        error
+      );
     }
   };
 
   return (
     <div className="admin-project-form-wrapper">
-      <form
-        id="form"
-        className="admin-project-form"
-        onSubmit={submitForm}
-      >
+      <form id="form" className="admin-project-form" onSubmit={submitForm}>
         <div className="form-item">
-                  <input type="file" name="image" id="image" required />
-                  {/* <label htmlFor="image">Image:</label> */}
-               </div>
-               <div className="form-item">
-                   <input type="text" name="nom" id="nom" required />
-                  <label htmlFor="nom">Nom:</label>
-               </div>
-              <div className="form-item">
-                  <input type="text" name="alt" id="alt" required />
-                  <label htmlFor="alt">Alt:</label>
-              </div>
-              <div className="form-item">
-                  <textarea className="" name="description" id="description"  required></textarea>
-                  <label htmlFor="description">Description:</label>
-              </div>
-              <div className="form-item">
-                  <input type="text" name="technos" id="technos" required />
-                   <label htmlFor="technos">Technos:</label>
-               </div>
-                <div className="form-item">
-                   <textarea name="liens" id="liens" required></textarea>
-                    <label htmlFor="liens">Liens (au format JSON : tableau d'objets "nom":"", "lien":"") :</label>
-                </div>
-                <button type="submit" className="submit-btn">
-                     {isSubmitted ? "Envoyé !" : "Envoyer"}
-                </button>
+          <input type="file" name="image" id="image" required />
+          {/* <label htmlFor="image">Image:</label> */}
+        </div>
+        <div className="form-item">
+          <input type="text" name="nom" id="nom" required />
+          <label htmlFor="nom">Nom:</label>
+        </div>
+        <div className="form-item">
+          <input type="text" name="alt" id="alt" required />
+          <label htmlFor="alt">Alt:</label>
+        </div>
+        <div className="form-item">
+          <textarea
+            className=""
+            name="description"
+            id="description"
+            required
+          ></textarea>
+          <label htmlFor="description">Description:</label>
+        </div>
+        <div className="form-item">
+          <input type="text" name="technos" id="technos" required />
+          <label htmlFor="technos">Technos:</label>
+        </div>
+        <div className="form-item">
+          <textarea name="liens" id="liens" required></textarea>
+          <label htmlFor="liens">
+            Liens (au format JSON : tableau d'objets "nom":"", "lien":"") :
+          </label>
+        </div>
+        <button type="submit" className="submit-btn">
+          {isSubmitted ? "Envoyé !" : "Envoyer"}
+        </button>
       </form>
     </div>
   );

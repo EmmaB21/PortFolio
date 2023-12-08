@@ -9,26 +9,30 @@ const EditSkillForm = ({ skillData, updateSkills }) => {
         try {
             // Effectuer la requête DELETE pour supprimer le projet
             const response = await fetch(`${fetchInfo.skills}/${skillData.id}`, {
-                method: 'DELETE',
+                method: "DELETE",
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
             });
 
             if (response.ok) {
-                setIsSubmitted(true)
+                setIsSubmitted(true);
                 // Appeler la fonction pour mettre à jour les projets dans le composant parent
                 fetch(fetchInfo.skills)
-                    .then(response => response.json())
-                    .then(data => updateSkills(data))
-                    .catch(error => console.error('Erreur lors du chargement des cartes', error));
-
+                    .then((response) => response.json())
+                    .then((data) => updateSkills(data))
+                    .catch((error) =>
+                        console.error("Erreur lors du chargement des cartes", error)
+                    );
             } else {
                 const errorData = await response.json();
                 console.error("Erreur lors de la requête :", errorData);
             }
         } catch (error) {
-            console.error("Une erreur s'est produite lors de la suppression du projet", error);
+            console.error(
+                "Une erreur s'est produite lors de la suppression du projet",
+                error
+            );
         }
     };
 
@@ -39,7 +43,7 @@ const EditSkillForm = ({ skillData, updateSkills }) => {
             </button>
         </div>
     );
-}
+};
 export default EditSkillForm;
 
 // import React, { useState, useEffect } from "react";
@@ -90,7 +94,7 @@ export default EditSkillForm;
 //                     Authorization: `Bearer ${token}`,
 //                 },
 //                 body: localFormData,
-                
+
 //             });
 
 //             if (response.ok) {

@@ -1,140 +1,139 @@
-@import '../../mixins.scss';
-@import '../../variables.scss';
-
+@import "../../mixins.scss";
+@import "../../variables.scss";
 
 .header {
-    color: $white-text-color;
-    background-image: url("../../img/pages/livres.webp");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100vh;
-    width: 100%;
-    padding: 40px;
+  color: $white-text-color;
+  background-image: url("../../img/pages/livres.webp");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+  padding: 40px;
+
+  @media (max-width: 1030px) {
+    padding: 20px;
+  }
+
+  &__title {
+    @include typo("dancing script", 80px);
+    padding-top: 35vh;
+    width: 50%;
+    text-align: center;
+    margin-left: 50%;
+
+    @media (max-width: 1400px) {
+      @include typo("dancing script", 60px);
+    }
 
     @media (max-width: 1030px) {
-        padding: 20px;
+      @include typo("dancing script", 50px);
     }
 
-    &__title {
-        @include typo ('dancing script', 80px,);
-        padding-top: 35vh;
-        width: 50%;
-        text-align: center;
-        margin-left: 50%;
+    @media (max-width: 540px) {
+      @include typo("dancing script", 40px);
+    }
+  }
 
-        @media (max-width: 1400px) {
-            @include typo ('dancing script', 60px,)
-        }
-
-        @media (max-width: 1030px) {
-            @include typo ('dancing script', 50px,)
-        }
-
-        @media (max-width: 540px){
-            @include typo ('dancing script', 40px,)
-        }
+  &__subtitle {
+    @include typo("roboto", 20px);
+    @include flex(space-between, normal, row);
+    @media (max-width: 1400px) {
+      @include typo("roboto", 16px);
     }
 
-    &__subtitle {
-        @include typo ('roboto', 20px,);
-        @include flex (space-between, normal,row);
-        @media (max-width: 1400px) {
-            @include typo ('roboto', 16px,);
-        }
-
-        @media (max-width: 1030px) {
-            @include typo ('roboto', 12px,);
-        }
-
-        .mobile-text {
-            @media (max-width: 540px) {
-                display:none;
-            }
-        }
-
-        &2 {
-            padding-right: 10px;
-        }
+    @media (max-width: 1030px) {
+      @include typo("roboto", 12px);
     }
 
-    $total-arrows: 3;
-    $arrow-line-length: 35px;
-    $arrow-line-width: 4px;
-    $arrow-bounce-distance: 10px; // Distance de rebond
-
-    // arrow animation + choose direction
-    @mixin arrow-transitions($rot: 0deg) {
-        transform: translate(-50%, -50%) rotateZ($rot);
+    .mobile-text {
+      @media (max-width: 540px) {
+        display: none;
+      }
     }
 
-    // arrows
-    .arrow-container {
-        display: block;
-        width: 60px;
-        height: 60px;
-        position: absolute;
-        bottom: 2%;
-        right: 2%;
-        @include arrow-transitions(0deg);
+    &2 {
+      padding-right: 10px;
+    }
+  }
 
-        @media (max-width: 1030px) {
-            width: 20px;
-            height: 50px;
-        }
+  $total-arrows: 3;
+  $arrow-line-length: 35px;
+  $arrow-line-width: 4px;
+  $arrow-bounce-distance: 10px; // Distance de rebond
 
-        @media (max-width: 540px) {
-            width: 8px;
-            height: 50px;
-            right: 8%;
-        }
+  // arrow animation + choose direction
+  @mixin arrow-transitions($rot: 0deg) {
+    transform: translate(-50%, -50%) rotateZ($rot);
+  }
 
-        &:hover {
-            cursor: pointer;
+  // arrows
+  .arrow-container {
+    display: block;
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
+    @include arrow-transitions(0deg);
 
-            .arrow {
-                top: 50%;
-
-                &:before {
-                    @include arrow-transitions(-40deg);
-                }
-
-                &:after {
-                    @include arrow-transitions(40deg);
-                }
-            }
-        }
+    @media (max-width: 1030px) {
+      width: 20px;
+      height: 50px;
     }
 
-    .arrow {
-        position: absolute;
-        left: 50%;
-        transition: all .4s ease;
+    @media (max-width: 540px) {
+      width: 8px;
+      height: 50px;
+      right: 8%;
+    }
 
-        &:before,
-        &:after {
-            transition: all .4s ease;
-            content: '';
-            display: block;
-            position: absolute;
-            transform-origin: bottom right;
-            background: #eaeaea;
-            width: $arrow-line-width;
-            height: $arrow-line-length;
-            border-radius: 10px;
-            transform: translate(-50%, -50%) rotateZ(-45deg);
+    &:hover {
+      cursor: pointer;
+
+      .arrow {
+        top: 50%;
+
+        &:before {
+          @include arrow-transitions(-40deg);
         }
 
         &:after {
-            transform-origin: bottom left;
-            transform: translate(-50%, -50%) rotateZ(45deg);
+          @include arrow-transitions(40deg);
         }
-
-        @for $i from 1 through $total-arrows {
-            &:nth-child(#{$i}) {
-                opacity: 0.3 * $i;
-                top: 15 + calc(100% * $i/5);
-            }
-        }
+      }
     }
+  }
+
+  .arrow {
+    position: absolute;
+    left: 50%;
+    transition: all 0.4s ease;
+
+    &:before,
+    &:after {
+      transition: all 0.4s ease;
+      content: "";
+      display: block;
+      position: absolute;
+      transform-origin: bottom right;
+      background: #eaeaea;
+      width: $arrow-line-width;
+      height: $arrow-line-length;
+      border-radius: 10px;
+      transform: translate(-50%, -50%) rotateZ(-45deg);
+    }
+
+    &:after {
+      transform-origin: bottom left;
+      transform: translate(-50%, -50%) rotateZ(45deg);
+    }
+
+    @for $i from 1 through $total-arrows {
+      &:nth-child(#{$i}) {
+        opacity: 0.3 * $i;
+        top: 15 + calc(100% * $i/5);
+      }
+    }
+  }
 }

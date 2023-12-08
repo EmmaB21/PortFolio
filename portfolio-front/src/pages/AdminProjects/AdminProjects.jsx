@@ -62,7 +62,7 @@ const AdminProjects = () => {
                     ))}
                 </section>
             </div>
-            <NewProjectForm updateProjects={updateProjects}/>
+            <NewProjectForm updateProjects={updateProjects} />
             {isModalOpen && (
                 <EditModal
                     data={selectedProject}

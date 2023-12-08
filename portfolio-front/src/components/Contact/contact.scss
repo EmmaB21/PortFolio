@@ -1,28 +1,28 @@
-@import '../../variables.scss';
-@import '../../mixins.scss';
+@import "../../variables.scss";
+@import "../../mixins.scss";
 
 .contact-ctn {
-    padding-top: 270px;
-    background-image: url("../../img/pages/library.webp");
-    background-color: $white-text-color;
-    height: 100vh;
-    width: 100%;
-    @media (max-width: 1030px) {
-        padding-top: 200px;
-    }
-    @media (max-width: 800px) {
-        height: max-content;
-        padding-bottom: 30px;
-    }
+  padding-top: 270px;
+  background-image: url("../../img/pages/library.webp");
+  background-color: $white-text-color;
+  height: 100vh;
+  width: 100%;
+  @media (max-width: 1030px) {
+    padding-top: 200px;
+  }
+  @media (max-width: 800px) {
+    height: max-content;
+    padding-bottom: 30px;
+  }
 
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-    // &__title {
-    //     @include typo ('dancing script', 3em, 400);
-    //     color: $white-text-color;
-    //     text-align: center;
-    //     padding-left: 300px;
-    //     padding-top: 120px;
-    // }
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // &__title {
+  //     @include typo ('dancing script', 3em, 400);
+  //     color: $white-text-color;
+  //     text-align: center;
+  //     padding-left: 300px;
+  //     padding-top: 120px;
+  // }
 }

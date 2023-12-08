@@ -1,72 +1,70 @@
-@import '../../variables.scss';
-@import '../../mixins.scss';
+@import "../../variables.scss";
+@import "../../mixins.scss";
 
 .admin-skills {
-    padding-top: 120px;
-    padding-bottom: 60px;
-    width: 100%;
-    height: 100%;
-    background-color: $white-text-color;
+  padding-top: 120px;
+  padding-bottom: 60px;
+  width: 100%;
+  height: 100%;
+  background-color: $white-text-color;
 
-    @media (max-width: 1030px) {
-        padding-top: 90px;
+  @media (max-width: 1030px) {
+    padding-top: 90px;
+  }
+
+  & .skills__part {
+    padding-bottom: 36px;
+
+    &__title {
+      @include typo("dancing script", 3em, 400);
+      text-align: center;
+      margin-bottom: 24px;
     }
 
-    & .skills__part {
-        padding-bottom: 36px;
-
-        &__title {
-            @include typo('dancing script', 3em, 400);
-            text-align: center;
-            margin-bottom: 24px;
-            ;
-        }
-
-        &__btn {
-            background-color: $color7;
-            filter: drop-shadow(2px 2px 3px #0003);
-            color: $white-text-color;
-            font-family: "roboto";
-            font-size: clamp(16px, 1.6vw, 18px);
-            display: block;
-            padding: 12px 20px;
-            margin: 8px auto;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            user-select: none;
-            transition: 0.2s;
-        }
-
-        &-container {
-            width: 50%;
-            margin: auto;
-            padding: 30px 0;
-            padding-bottom: 60px;
-            height: auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            align-items: center;
-            gap: 40px;
-
-            @media (max-width: 1400px) {
-                width: 60%;
-            }
-
-            @media (max-width: 1030px) {
-                grid-template-columns: 1fr 1fr 1fr;
-            }
-
-            @media (max-width: 890px) {
-                gap: 20px;
-                // width: 50%;
-            }
-
-            @media (max-width: 540px) {
-                grid-template-columns: 1fr 1fr;
-                width: 70%;
-            }
-        }
-
+    &__btn {
+      background-color: $color7;
+      filter: drop-shadow(2px 2px 3px #0003);
+      color: $white-text-color;
+      font-family: "roboto";
+      font-size: clamp(16px, 1.6vw, 18px);
+      display: block;
+      padding: 12px 20px;
+      margin: 8px auto;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      user-select: none;
+      transition: 0.2s;
     }
+
+    &-container {
+      width: 50%;
+      margin: auto;
+      padding: 30px 0;
+      padding-bottom: 60px;
+      height: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      align-items: center;
+      gap: 40px;
+
+      @media (max-width: 1400px) {
+        width: 60%;
+      }
+
+      @media (max-width: 1030px) {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      @media (max-width: 890px) {
+        gap: 20px;
+        // width: 50%;
+      }
+
+      @media (max-width: 540px) {
+        grid-template-columns: 1fr 1fr;
+        width: 70%;
+      }
+    }
+  }
 }

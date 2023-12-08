@@ -1,208 +1,208 @@
-@import '../../variables.scss';
-@import '../../mixins.scss';
+@import "../../variables.scss";
+@import "../../mixins.scss";
 
 $transition-time: 2.5s;
 
 .projectCard {
-    border-radius: 10px;
-    background-color: $main-color;
-    position: relative;
-    height: 350px;
-    width: 100%;
-    margin: 10px 0;
-    transition: ease all $transition-time;
-    perspective: 1200px;
-    &:hover {
-        .cover {
-            transform: rotateX(0deg) rotateY(-180deg);
-
-            &:before {
-                transform: translateZ(30px);
-            }
-
-            &:after {
-                background-color: $main-color;
-            }
-
-            .card-title {
-                transform: translateZ(100px);
-            }
-
-            .technos {
-                transform: translateZ(60px);
-            }
-
-            .card-links,
-            p {
-                transform: translateZ(-60px) rotatey(-180deg);
-            }
-        }
-    }
-
+  border-radius: 10px;
+  background-color: $main-color;
+  position: relative;
+  height: 350px;
+  width: 100%;
+  margin: 10px 0;
+  transition: ease all $transition-time;
+  perspective: 1200px;
+  &:hover {
     .cover {
-        border-radius: 10px;
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        transform-style: preserve-3d;
-        transition: ease all $transition-time;
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
-        &:before {
-            content: '';
-            position: absolute;
-            border: 5px solid rgba(255, 255, 255, .5);
-            border-radius: 10px;
-            box-shadow: 0 0 12px rgba(0, 0, 0, .3);
-            top: 20px;
-            left: 20px;
-            right: 20px;
-            bottom: 20px;
-            z-index: 2;
-            transition: ease all $transition-time;
-            transform-style: preserve-3d;
-            transform: translateZ(0px);
-        }
+      transform: rotateX(0deg) rotateY(-180deg);
 
-        &:after {
-            border-radius: 10px;
-            content: '';
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            right: 0px;
-            bottom: 0px;
-            z-index: 2;
-            transition: ease all 1.3s;
-            background: rgba(0, 0, 0, .2);
-        }
+      &:before {
+        transform: translateZ(30px);
+      }
 
-        // &.cover0 {
-        //     background-image: url("../../img/projects/bank-tree.webp");
-        // }
+      &:after {
+        background-color: $main-color;
+      }
 
-        // &.cover1 {
-        //     background-image: url("../../img/projects/Kasa.webp");
-        // }
+      .card-title {
+        transform: translateZ(100px);
+      }
 
-        // &.cover2 {
-        //     background-image: url("../../img/projects/Nina.webp");
-        // }
+      .technos {
+        transform: translateZ(60px);
+      }
 
-        // &.cover3 {
-        //     background-image: url("../../img/projects/Ohmyfood2.webp");
-        // }
+      .card-links,
+      p {
+        transform: translateZ(-60px) rotatey(-180deg);
+      }
+    }
+  }
 
-        // &.cover4 {
-        //     background-image: url("../../img/projects/Othersthings.webp");
-        // }
-
-        // &.cover5 {
-        //     background-image: url("../../img/projects/sophie-bluel.webp");
-        // }
-
-        .card-title {
-            @include typo('dancing script', 3em, 600);
-            position: absolute;
-            bottom: 55px;
-            left: 50px;
-            color: $white-text-color;
-            transform-style: preserve-3d;
-            transition: ease all $transition-time;
-            z-index: 3;
-            transform: translateZ(20px);
-            @media (max-width: 890px) {
-                @include typo('dancing script', 2.4em, 400);
-                bottom: 45px;
-                left: 40px;
-            }
-            @media (max-width: 540px) {
-                @include typo('dancing script', 2em, 300);
-                left: 30px;
-                bottom: 35px;
-            }
-        }
-
-        .technos {
-            @include typo('roboto', 1.2em, 200);
-            position: absolute;
-            top: 50px;
-            right: 50px;
-            color: white;
-            transform-style: preserve-3d;
-            transition: ease all $transition-time;
-            z-index: 4;
-            transform: translateZ(0px);
-            @media (max-width: 890px) {
-                @include typo('roboto', 0.9em, 400);
-                top: 40px;
-                right: 40px;
-            }
-        }
+  .cover {
+    border-radius: 10px;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transform-style: preserve-3d;
+    transition: ease all $transition-time;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    &:before {
+      content: "";
+      position: absolute;
+      border: 5px solid rgba(255, 255, 255, 0.5);
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+      top: 20px;
+      left: 20px;
+      right: 20px;
+      bottom: 20px;
+      z-index: 2;
+      transition: ease all $transition-time;
+      transform-style: preserve-3d;
+      transform: translateZ(0px);
     }
 
-    .card-back {
+    &:after {
+      border-radius: 10px;
+      content: "";
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+      z-index: 2;
+      transition: ease all 1.3s;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    // &.cover0 {
+    //     background-image: url("../../img/projects/bank-tree.webp");
+    // }
+
+    // &.cover1 {
+    //     background-image: url("../../img/projects/Kasa.webp");
+    // }
+
+    // &.cover2 {
+    //     background-image: url("../../img/projects/Nina.webp");
+    // }
+
+    // &.cover3 {
+    //     background-image: url("../../img/projects/Ohmyfood2.webp");
+    // }
+
+    // &.cover4 {
+    //     background-image: url("../../img/projects/Othersthings.webp");
+    // }
+
+    // &.cover5 {
+    //     background-image: url("../../img/projects/sophie-bluel.webp");
+    // }
+
+    .card-title {
+      @include typo("dancing script", 3em, 600);
+      position: absolute;
+      bottom: 55px;
+      left: 50px;
+      color: $white-text-color;
+      transform-style: preserve-3d;
+      transition: ease all $transition-time;
+      z-index: 3;
+      transform: translateZ(20px);
+      @media (max-width: 890px) {
+        @include typo("dancing script", 2.4em, 400);
+        bottom: 45px;
+        left: 40px;
+      }
+      @media (max-width: 540px) {
+        @include typo("dancing script", 2em, 300);
+        left: 30px;
+        bottom: 35px;
+      }
+    }
+
+    .technos {
+      @include typo("roboto", 1.2em, 200);
+      position: absolute;
+      top: 50px;
+      right: 50px;
+      color: white;
+      transform-style: preserve-3d;
+      transition: ease all $transition-time;
+      z-index: 4;
+      transform: translateZ(0px);
+      @media (max-width: 890px) {
+        @include typo("roboto", 0.9em, 400);
+        top: 40px;
+        right: 40px;
+      }
+    }
+  }
+
+  .card-back {
+    border-radius: 10px;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: $main-color;
+    transform-style: preserve-3d;
+    transition: ease all $transition-time;
+    transform: translateZ(-1px);
+    @include flex(center, center, column);
+    gap: 30px;
+    @media (max-width: 540px) {
+      gap: 20px;
+    }
+
+    .card-links {
+      transform-style: preserve-3d;
+      transition: ease transform $transition-time;
+      transform: translateZ(-1px) rotatey(-180deg);
+      background: transparent;
+      a {
+        border: 1px solid white;
+        @include typo("roboto", 1em, 300);
+        color: $white-text-color;
+        padding: 14px 32px;
+        margin: 8px;
+        outline: none;
+        text-decoration: none;
         border-radius: 10px;
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        background: $main-color;
-        transform-style: preserve-3d;
-        transition: ease all $transition-time;
-        transform: translateZ(-1px);
-        @include flex (center, center,column);
-        gap: 30px;
+        @media (max-width: 890px) {
+          @include typo("roboto", 0.8em, 300);
+        }
         @media (max-width: 540px) {
-            gap: 20px;  
+          padding: 8px 16px;
         }
-
-        .card-links {
-            transform-style: preserve-3d;
-            transition: ease transform $transition-time;
-            transform: translateZ(-1px) rotatey(-180deg);
-            background: transparent;
-            a{
-            border: 1px solid white;
-            @include typo('roboto', 1em, 300);
-            color: $white-text-color;
-            padding: 14px 32px;
-            margin: 8px;
-            outline: none;
-            text-decoration: none;
-            border-radius: 10px;
-            @media (max-width: 890px) {
-                @include typo('roboto', 0.8em, 300);
-            }
-            @media (max-width: 540px) {
-                padding: 8px 16px;  
-            }
-            &:hover {
-                background-color: $white-text-color;
-                color: $main-color;
-            }
+        &:hover {
+          background-color: $white-text-color;
+          color: $main-color;
         }
-        }
-        
-        p {
-            transform-style: preserve-3d;
-            transition: ease transform $transition-time;
-            transform: translateZ(-1px) rotatey(-180deg);
-            background: transparent;
-            border: 1px solid $white-text-color;
-            @include typo ('roboto', 1em, 300);
-            text-align: center;
-            color: $white-text-color;
-            padding: 24px 42px;
-            width: 80%;
-            border-radius: 10px;
-            @media (max-width: 890px) {
-                @include typo('roboto', 0.9em, 300);
-            }
-            @media (max-width: 540px) {
-                @include typo('roboto', 0.8em, 300);
-                padding: 12px 20px;  
-            }
-        }
+      }
     }
+
+    p {
+      transform-style: preserve-3d;
+      transition: ease transform $transition-time;
+      transform: translateZ(-1px) rotatey(-180deg);
+      background: transparent;
+      border: 1px solid $white-text-color;
+      @include typo("roboto", 1em, 300);
+      text-align: center;
+      color: $white-text-color;
+      padding: 24px 42px;
+      width: 80%;
+      border-radius: 10px;
+      @media (max-width: 890px) {
+        @include typo("roboto", 0.9em, 300);
+      }
+      @media (max-width: 540px) {
+        @include typo("roboto", 0.8em, 300);
+        padding: 12px 20px;
+      }
+    }
+  }
 }
