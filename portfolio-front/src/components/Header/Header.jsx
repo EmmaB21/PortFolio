@@ -6,6 +6,7 @@ const Header = () => {
         <h2 className="header__subtitle1">PortFolio</h2>
         <h2 className="header__subtitle2">Hello. I'm a <span className="mobile-text">Front-End</span> Developer.</h2>
       </div>
+      <a href="/cv/CVimpression.pdf" target="_blank" rel="noopener noreferrer" className="header__cv-Link">Voir mon CV</a>
       <h1 className="header__title">Among others things...</h1>
       <a href="#About" className="arrow-container">
         <div className="arrow"></div>

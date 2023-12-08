@@ -35,6 +35,24 @@
     }
   }
 
+  &__cv-Link {
+    position: absolute;
+    background-color: $color6;
+    border: 2px solid $color6;
+    padding : 8px 12px;
+    border-radius: 21px 3px;
+    right: 50px;
+    top: 100px;
+    text-decoration: none;
+    color: $white-text-color;
+    font-style: oblique;
+    @include typo ("roboto", 20px, 500);
+    transition: 0.3s;
+    &:hover {
+      background-color: $main-color;
+    }
+  }
+
   &__subtitle {
     @include typo("roboto", 20px);
     @include flex(space-between, normal, row);

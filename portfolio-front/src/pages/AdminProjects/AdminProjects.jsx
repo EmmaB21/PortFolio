@@ -50,28 +50,31 @@ const AdminProjects = () => {
 
     return (
         <div className="admin-projects">
-            <div className='projects__part'>
-                <h2 className='projects__part__title'>Page Admin - Mes réalisations</h2>
-                <button className="projects__part__btn" onClick={navigateToSkills}>Page Compétences</button>
-                <button className="projects__part__btn" onClick={navigateToHome}>Page Principale</button>
-                <section className="projects__part-container">
-                    {projects.map(project => (
-                        <div key={project.id} onClick={() => handleOpenModal(project)}>
-                            <ProjectCard project={project} />
-                        </div>
-                    ))}
-                </section>
+            <aside className='sidebar'>
+                <h2 className='sidebar__title'>Mes réalisations</h2>
+                <button className="sidebar__btn" onClick={navigateToSkills}>Page Compétences</button>
+                <button className="sidebar__btn" onClick={navigateToHome}>Page Principale</button>
+            </aside>
+            <div className='main-content'>
+                <div className='projects__part'>
+                    <section className="projects__part-container">
+                        {projects.map(project => (
+                            <div key={project.id} onClick={() => handleOpenModal(project)}>
+                                <ProjectCard project={project} />
+                            </div>
+                        ))}
+                    </section>
+                </div>
+                <NewProjectForm updateProjects={updateProjects} />
+                {isModalOpen && (
+                    <EditModal
+                        data={selectedProject}
+                        type="project"
+                        onClose={handleCloseModal}
+                        updateProjects={updateProjects}
+                    />
+                )}
             </div>
-            <NewProjectForm updateProjects={updateProjects} />
-            {isModalOpen && (
-                <EditModal
-                    data={selectedProject}
-                    type="project"
-                    onClose={handleCloseModal}
-                    updateProjects={updateProjects}
-                />
-            )}
-
         </div>
     );
 }

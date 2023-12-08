@@ -2,46 +2,61 @@
 @import "../../mixins.scss";
 
 .admin-skills {
-  padding-top: 120px;
-  padding-bottom: 60px;
+  @include flex(normal, normal, row);
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-color: $white-text-color;
 
   @media (max-width: 1030px) {
     padding-top: 90px;
   }
 
-  & .skills__part {
-    padding-bottom: 36px;
+  & .sidebar {
+    width: 18vw;
+    padding-top: 15vh;
+    background-color: $color7;
+    margin-top: -40px;
 
     &__title {
-      @include typo("dancing script", 3em, 400);
+      @include typo("dancing script", 2.3em, 400);
       text-align: center;
+      margin: auto;
       margin-bottom: 24px;
+      padding-bottom: 36px;
+      color: $white-text-color;
+      width: 85%;
     }
 
     &__btn {
-      background-color: $color7;
+      width: 75%;
+      background-color: $color5;
       filter: drop-shadow(2px 2px 3px #0003);
       color: $white-text-color;
       font-family: "roboto";
       font-size: clamp(16px, 1.6vw, 18px);
       display: block;
       padding: 12px 20px;
-      margin: 8px auto;
+      margin: 20px auto;
       border: none;
       border-radius: 4px;
       cursor: pointer;
       user-select: none;
       transition: 0.2s;
     }
+  }
+
+  & .main-content {
+    width: 80vw;
+    margin: auto;
+  }
+
+  & .skills__part {
+    padding-bottom: 36px;
 
     &-container {
       width: 50%;
       margin: auto;
-      padding: 30px 0;
-      padding-bottom: 60px;
+      padding: 20px 0 60px 0;
       height: auto;
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr;

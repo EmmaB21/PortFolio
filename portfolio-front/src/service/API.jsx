@@ -1,4 +1,6 @@
-export const baseURL = "//back.embapeco.com" // "http://localhost:3001";
+export const baseURL = 
+"//back.embapeco.com" 
+// "http://localhost:3001";
 
 export const fetchInfo = {
   signup: `${baseURL}/api/auth/signup`,

@@ -50,28 +50,31 @@ const AdminSkills = () => {
 
     return (
         <div className="admin-skills">
-            <div className='skills__part'>
-                <h2 className='skills__part__title'>Page Admin - Mes compétences</h2>
-                <button className="skills__part__btn" onClick={navigateToProjects}>Page Projets</button>
-                <button className="skills__part__btn" onClick={navigateToHome}>Page Principale</button>
-                <section className="skills__part-container">
-                    {skills.map(skill => (
-                        <div key={skill.id} onClick={() => handleOpenModal(skill, 'edit')}>
-                            <TechCard skill={skill} />
-                        </div>
-                    ))}
-                </section>
+            <aside className='sidebar'>
+                <h2 className='sidebar__title'>Mes compétences</h2>
+                <button className="sidebar__btn" onClick={navigateToProjects}>Page Projets</button>
+                <button className="sidebar__btn" onClick={navigateToHome}>Page Principale</button>
+            </aside>
+            <div className='main-content'>
+                <div className='skills__part'>
+                    <section className="skills__part-container">
+                        {skills.map(skill => (
+                            <div key={skill.id} onClick={() => handleOpenModal(skill, 'edit')}>
+                                <TechCard skill={skill} />
+                            </div>
+                        ))}
+                    </section>
+                </div>
+                <NewSkillForm updateSkills={updateSkills} />
+                {isModalOpen && (
+                    <EditModal
+                        data={selectedSkill}
+                        type="skill"
+                        onClose={handleCloseModal}
+                        updateSkills={updateSkills}
+                    />
+                )}
             </div>
-            <NewSkillForm updateSkills={updateSkills} />
-            {isModalOpen && (
-                <EditModal
-                    data={selectedSkill}
-                    type="skill"
-                    onClose={handleCloseModal}
-                    updateSkills={updateSkills}
-                />
-            )}
-
         </div>
     );
 }
