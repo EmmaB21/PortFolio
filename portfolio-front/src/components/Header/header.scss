@@ -39,7 +39,7 @@
     position: absolute;
     background-color: $color6;
     border: 2px solid $color6;
-    padding : 8px 12px;
+    padding: 8px 12px;
     border-radius: 21px 3px;
     right: 50px;
     top: 100px;
@@ -48,18 +48,21 @@
     font-style: oblique;
     @include typo ("roboto", 20px, 500);
     transition: 0.3s;
-    @media (max-width: 1030px) {
-      padding: 6px 8px;
-      @include typo ("roboto", 12px, 400);
-      right: 30px;
-      top:55px;
-    }
+
     @media (max-width: 1400px) {
       padding: 6px 8px;
       @include typo ("roboto", 14px, 400);
       right: 50px;
-      top:90px;
+      top: 90px;
     }
+
+    @media (max-width: 1030px) {
+      padding: 6px 8px;
+      @include typo ("roboto", 12px, 400);
+      right: 30px;
+      top: 55px;
+    }
+
     &:hover {
       background-color: $main-color;
     }
@@ -68,6 +71,7 @@
   &__subtitle {
     @include typo("roboto", 20px);
     @include flex(space-between, normal, row);
+
     @media (max-width: 1400px) {
       @include typo("roboto", 16px);
     }
