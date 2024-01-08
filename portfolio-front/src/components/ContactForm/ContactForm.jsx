@@ -63,7 +63,7 @@ const Form = () => {
                         <label htmlFor="sender">Nom:</label>
                     </div>
                     <div className="form-item">
-                        <input type="text" name="email" id="email" required />
+                        <input type="email" name="email" id="email" required />
                         <label htmlFor="email">Email:</label>
                     </div>
                     <div className="form-item">
